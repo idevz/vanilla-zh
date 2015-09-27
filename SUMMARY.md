@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [First Chapter](chapter1.md)
-* [s c](s_c.md)
+* [源起](vanilla-start.md)
 
