@@ -6,6 +6,6 @@
 
 至少到目前为止基于自己对技术的学习和经验的积累，这个答案还是出奇的肯定：它就是我一直找寻的。
 
-至于有了Openresty为什么还需要另一个开发框架呢？首先熟悉Openresty的同学都知道```Openresty=Nginx+ngx_http_lua+Luajit```而对于大多数做业务开发的同学来说，Nginx、ngx_http_*等各种模块对他们而言是陌生的，尤其身边更多使用PHP开发的同学，
+至于有了Openresty为什么还需要另一个开发框架呢？首先熟悉Openresty的同学都知道```Openresty=Nginx+ngx_http_lua+Luajit```而对于大多数做业务开发的同学来说，Nginx、ngx_http_*等各种模块对他们而言是陌生的，
 
 另外这些年自己一直静静的混迹在各种技术社区，邮件组，各种分享活动中，以春哥（agentzh）为代表的Openresty社区
