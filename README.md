@@ -27,7 +27,7 @@ luarocks install vanilla
 
 
 ##使用
-#####*应用骨架生成*
+#####*应用骨架生成及服务启动*
 ```
 vanilla new app_name
 cd app_name
