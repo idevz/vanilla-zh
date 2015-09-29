@@ -28,9 +28,9 @@ luarocks install vanilla
 
 ##使用
 ```
-vanilla new app
-cd app
-vanilla start
+vanilla new app_name
+cd app_name
+vanilla start [--trace]
 ```
 
 ##为什么需要Vanilla
