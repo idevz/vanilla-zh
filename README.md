@@ -3,6 +3,8 @@
 <p><a href="http://idevz.github.io/vanilla/"><img border="0" src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png" alt="LuaRocks" width="150px"></a></p>
 
 ##安装说明
+1. Vanilla使用luarocks管理包依赖
+2. 本身也已经发布到Lua包管理平台Luarocks，需要先安装Luarocks
 #####*Linux平台*
 ```
 yum install lua-devel luarocks
