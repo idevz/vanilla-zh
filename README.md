@@ -23,8 +23,11 @@ luarocks install vanilla
 #####*为何建议Lua5.1版本*
 1. *Openresty执行Lua需要基于Luajit加速，Luajit使用Lua5.1的ABI*
 2. *Luarocks会根据Lua版本识别相应的包*
-2. *使用源码安装，尤其MacOSX10.9后brew默认的lua是5.2，绝对不适合Openresty*
-3. **
+3. *Vanilla运行Openresty前需要基于Lua5.1做服务相关自动化配置*
+
+#####*为何建议源码安装*
+1. *源码安装更方便版本控制*
+2. *尤其MacOSX10.9后brew默认安装的Lua是5.2版本，必须源码安装5.1*
 
 
 ##使用
