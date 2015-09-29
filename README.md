@@ -46,13 +46,13 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 │   ├── controllers(应用业务代码主体目录)
 │   │   ├── error.lua（应用业务错误处理，处理本路径下相应业务报错）
 │   │   └── index.lua（hello world示例）
-│   ├── library
-│   ├── models
-│   │   ├── dao
+│   ├── library（应用本地类包）
+│   ├── models（应用数据处理类）
+│   │   ├── dao（数据层业务处理）
 │   │   │   └── table.lua
-│   │   └── service
+│   │   └── service（服务化业务处理，对DAO的再次封装）
 │   │       └── user.lua
-│   ├── nginx
+│   ├── nginx（*Openresty所封装Nginx请求处理各Phase）
 │   │   └── init.lua
 │   ├── plugins
 │   └── views
