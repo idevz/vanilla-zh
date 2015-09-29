@@ -24,3 +24,4 @@ vanilla start
 
 ####Vanilla
 * 基于Openresty开发，具备Openresty一切优良特性
+* 屏蔽了Web业务开发者对Nginx
