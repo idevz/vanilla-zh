@@ -9,7 +9,7 @@
 
 #####*安装示例/Linux*
 ```
-yum install lua-devel luarocks
+yum install lua-devel luarocks  -- 需要安装Lua开发版
 luarocks install vanilla
 ```
 #####*MacOSX平台*
