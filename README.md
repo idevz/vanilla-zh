@@ -29,7 +29,7 @@ luarocks install vanilla
 1. *源码安装更方便版本控制*
 2. *尤其MacOSX10.9后brew默认安装的Lua是5.2版本，而Openresty必须源码安装5.1*
 
-##使用
+###使用
 #####*应用代码骨架生成及服务启动*
 ```
 vanilla new app_name
@@ -109,7 +109,7 @@ return IndexController
 </html>
 ```
 
-##为什么需要Vanilla
+###为什么需要Vanilla
 回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。
 #####*Openresty*
 * 提供了处理HTTP请求的全套整体解决方案，是一个强大的平台
