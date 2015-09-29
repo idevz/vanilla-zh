@@ -34,6 +34,52 @@ cd app_name
 vanilla start [--trace]     -- 默认运行在development环境
 VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 ```
+#####*代码目录结构说明*
+```
+ /Users/zj-git/app_name/ tree ./
+./
+├── application
+│   ├── bootstrap.lua
+│   ├── controllers
+│   │   ├── error.lua
+│   │   └── index.lua
+│   ├── library
+│   ├── models
+│   │   ├── dao
+│   │   │   └── table.lua
+│   │   └── service
+│   │       └── user.lua
+│   ├── nginx
+│   │   └── init.lua
+│   ├── plugins
+│   └── views
+│       ├── error
+│       │   └── error.html
+│       └── index
+│           └── index.html
+├── config
+│   ├── application.lua
+│   ├── errors.lua
+│   ├── nginx.conf
+│   ├── nginx.lua
+│   ├── waf-regs
+│   │   ├── args
+│   │   ├── cookie
+│   │   ├── post
+│   │   ├── url
+│   │   ├── user-agent
+│   │   └── whiteurl
+│   └── waf.lua
+├── logs
+│   └── hack
+├── pub
+│   └── index.lua
+└── spec
+    ├── controllers
+    │   └── index_controller_spec.lua
+    ├── models
+    └── spec_helper.lua
+```
 #####*业务代码示例 IndexController*
 ```
 local IndexController = {}
