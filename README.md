@@ -25,3 +25,4 @@ vanilla start
 ####Vanilla
 * 基于Openresty开发，具备Openresty一切优良特性
 * 实现了自动化、配置化的Nginx指令集管理，使复杂的Nginx配置对Web业务开发者更透明化
+* 
