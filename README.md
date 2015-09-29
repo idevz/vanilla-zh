@@ -16,3 +16,6 @@ vanilla start
 ```
 
 ##为什么需要Vanilla
+* Openresty仅提供了处理HTTP请求的基本解决方案
+* Openresty没有对Web开发做了相应很完善的封装
+* 
