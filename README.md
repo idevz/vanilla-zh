@@ -8,12 +8,7 @@ yum install lua-devel luarocks
 luarocks install https://raw.githubusercontent.com/idevz/vanilla/master/vanilla-0.0.1-1.rockspec
 ```
 
-##set
-```
-content_by_lua_file ./pub/index.lua;
-```
-
-##useage
+##使用
 ```
 vanilla new app
 cd app
