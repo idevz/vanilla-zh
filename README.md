@@ -101,7 +101,6 @@ return IndexController
 <html>
 <body>
   <h1>{{status}}</h1>
-  {% for k, v in pairs(body) do %}
       {% if k == 'message' then %}
       <h4>{{k}}  =>  {{v}}</h4>
       {% else %}
