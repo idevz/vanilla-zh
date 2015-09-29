@@ -49,6 +49,22 @@ end
 
 return IndexController
 ```
+#####*模板示例 view/error.html*
+```
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>{{status}}</h1>
+  {% for k, v in pairs(body) do %}
+      {% if k == 'message' then %}
+      <h4>{{k}}  =>  {{v}}</h4>
+      {% else %}
+      <h5>{{k}}  :  {{v}}</h5>
+      {% end %}
+  {% end %}
+</body>
+</html>
+```
 
 ##为什么需要Vanilla
 回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。
