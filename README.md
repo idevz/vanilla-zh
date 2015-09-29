@@ -76,7 +76,7 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 ├── logs（日志目录）
 │   └── hack（攻击日志目录 / 保持可写权限）
 ├── pub（应用根路径）
-│   └── index.lua
+│   └── index.lua（应用请求入口）
 └── spec
     ├── controllers
     │   └── index_controller_spec.lua
