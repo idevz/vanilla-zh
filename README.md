@@ -21,6 +21,7 @@ wget luarocks（luaro源码地址）
 luarocks install vanilla
 ```
 #####*建议：*
+* *注意安装*
 * *使用源码安装，尤其MacOSX10.9后brew默认的lua是5.2，绝对不适合Openresty*
 
 * *Openresty运行Lua需要基于Luajit加速，Luajit使用Lua5.1的ABI*
