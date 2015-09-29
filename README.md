@@ -3,7 +3,7 @@
 <p><a href="http://idevz.github.io/vanilla/"><img border="0" src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png" alt="LuaRocks" width="150px"></a></p>
 
 ###安装说明
-1. Vanilla使用luarocks管理包依赖
+1. Vanilla使用Luarocks管理包依赖
 2. 安装Luarocks（with lua5.1）
 3. 使用Openresty最新稳定版
 
