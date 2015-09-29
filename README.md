@@ -19,12 +19,12 @@ vanilla start
 
 ##为什么需要Vanilla
 回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。
-####Openresty
+#####*Openresty*
 * 提供了处理HTTP请求的全套整体解决方案
 * 给Nginx模块开发开辟了一条全新的道路，我们可以使用Lua来处理Web请求
 * 形成了一个日趋完善的生态，这个生态包括了高性能Web服务方方面面 
 
-####Vanilla
+#####*Vanilla*
 * 基于Openresty开发，具备Openresty一切优良特性
 * 实现了自动化、配置化的Nginx指令集管理
 * 更合理的利用Openresty封装的8个请求处理Phase
