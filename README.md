@@ -14,3 +14,5 @@ vanilla new app
 cd app
 vanilla start
 ```
+
+##为什么需要Vanilla
