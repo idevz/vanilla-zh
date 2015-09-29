@@ -34,7 +34,7 @@ cd app_name
 vanilla start [--trace]     -- 默认运行在development环境
 VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 ```
-#####*请求处理IndexController*
+#####*业务代码IndexController*
 ```
 local IndexController = {}
 
