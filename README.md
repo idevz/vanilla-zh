@@ -72,7 +72,7 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 │   │   ├── url
 │   │   ├── user-agent
 │   │   └── whiteurl
-│   └── waf.lua
+│   └── waf.lua（服务防火墙配置）
 ├── logs
 │   └── hack
 ├── pub
