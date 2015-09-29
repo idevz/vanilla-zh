@@ -5,7 +5,7 @@
 ###安装说明
 1. Vanilla使用luarocks管理包依赖
 2. 安装Luarocks（with lua5.1）
-3. 使用Openresty最新稳定版。
+3. 使用Openresty最新稳定版
 
 #####*安装示例 / Linux平台*
 ```
@@ -27,7 +27,7 @@ luarocks install vanilla
 
 #####*为何建议源码安装*
 1. *源码安装更方便版本控制*
-2. *尤其MacOSX10.9后brew默认安装的Lua是5.2版本，必须源码安装5.1*
+2. *尤其MacOSX10.9后brew默认安装的Lua是5.2版本，而Openresty必须源码安装5.1*
 
 ##使用
 #####*应用代码骨架生成及服务启动*
