@@ -7,8 +7,7 @@
 2. 本身也已经发布到Lua包管理平台Luarocks，需要先安装Luarocks
 3. Vanilla运行在Openresty而Openresty使用Luajit加速，Luajit使用Lua5.1的ABI，所以需要Lua5.1支持。
 
-###安装实例
-#####*Linux平台*
+#####*安装示例/Linux*
 ```
 yum install lua-devel luarocks
 luarocks install vanilla
