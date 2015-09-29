@@ -6,7 +6,7 @@
 #####Linux平台
 ```
 yum install lua-devel luarocks
-luarocks install https://raw.githubusercontent.com/idevz/vanilla/master/vanilla-0.0.1-1.rockspec
+luarocks install vanilla
 ```
 #####MacOSX
 
