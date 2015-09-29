@@ -61,7 +61,7 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 │       └── index（index controller模板）
 │           └── index.html
 ├── config（应用配置目录）
-│   ├── application.lua（应用基础配置）
+│   ├── application.lua（应用基础配置 / 路由器、初始化等设置）
 │   ├── errors.lua
 │   ├── nginx.conf
 │   ├── nginx.lua
