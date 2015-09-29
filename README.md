@@ -49,7 +49,7 @@ end
 
 return IndexController
 ```
-#####*模板示例 view/error.html*
+#####*模板示例 views/error/error.html*
 ```
 <!DOCTYPE html>
 <html>
