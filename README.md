@@ -98,7 +98,7 @@ end
 
 return IndexController
 ```
-#####*模板示例 views/error/error.html*
+#####*模板示例 views/index/index.html*
 ```
 <!DOCTYPE html>
 <html>
