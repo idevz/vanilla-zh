@@ -101,12 +101,6 @@ return IndexController
 <html>
 <body>
   <h1>{{status}}</h1>
-      {% if k == 'message' then %}
-      <h4>{{k}}  =>  {{v}}</h4>
-      {% else %}
-      <h5>{{k}}  :  {{v}}</h5>
-      {% end %}
-  {% end %}
 </body>
 </html>
 ```
