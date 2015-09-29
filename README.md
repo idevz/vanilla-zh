@@ -14,7 +14,11 @@ luarocks install vanilla
 ```
 #####*MacOSX平台*
 ```
-brew install
+wget lua5.1(lua5.1 源码地址)
+源码安装lua5.1
+wget luarocks（luaro源码地址）
+源码安装luarocks
+luarocks install vanilla
 ```
 
 
