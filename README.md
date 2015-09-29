@@ -31,7 +31,7 @@ luarocks install vanilla
 ```
 vanilla new app_name
 cd app_name
-vanilla start [--trace]
+vanilla start [--trace]     -- 默认运行在development环境
 ```
 
 ##为什么需要Vanilla
