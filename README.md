@@ -4,7 +4,7 @@
 
 ###安装说明
 1. Vanilla使用luarocks管理包依赖
-2. 先安装Luarocks（with lua5.1），然后 luarocks install vanilla
+2. 安装Luarocks（with lua5.1）
 3. 需要Lua5.1支持,使用Openresty最新稳定版。
 
 #####*安装示例 / Linux平台*
