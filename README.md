@@ -5,7 +5,7 @@
 ##安装说明
 1. Vanilla使用luarocks管理包依赖
 2. 本身也已经发布到Lua包管理平台Luarocks，需要先安装Luarocks
-3. Vanilla运行在Openresty而Openresty使用Luajit加速，Luajit使用Lua5.1的ABI，所以需要Lua5.1支持。
+3. 需要Lua5.1支持。
 
 #####*安装示例/Linux*
 ```
