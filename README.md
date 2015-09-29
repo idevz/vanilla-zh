@@ -34,7 +34,21 @@ cd app_name
 vanilla start [--trace]     -- 默认运行在development环境
 VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 ```
-#####*IndexController*
+#####*请求处理IndexController*
+```
+local IndexController = {}
+
+function IndexController:index()
+    local view = self:getView()
+    local p = {}
+    p['vanilla'] = 'Welcome To Vanilla...'
+    p['zhoujing'] = 'Power by Openresty'
+    view:assign(p)
+    return view:display()
+end
+
+return IndexController
+```
 
 ##为什么需要Vanilla
 回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。
