@@ -20,4 +20,7 @@ vanilla start
 ####Openresty
 * 提供了处理HTTP请求的基本解决方案
 * 给Nginx模块开发开辟了一条全新的道路，我们可以使用Lua来处理Web请求
-* 形成了一个日趋完善的生态，这个生态包括了高性能Web服务方方面面
+* 形成了一个日趋完善的生态，这个生态包括了高性能Web服务方方面面 
+
+####Vanilla
+* 基于Openresty开发，具备Openresty一切优良特性
