@@ -3,12 +3,12 @@
 <p><a href="http://idevz.github.io/vanilla/"><img border="0" src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png" alt="LuaRocks" width="150px"></a></p>
 
 ##安装
-#####Linux平台
+#####*Linux平台*
 ```
 yum install lua-devel luarocks
 luarocks install vanilla
 ```
-#####MacOSX
+#####*MacOSX平台*
 
 ##使用
 ```
