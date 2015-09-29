@@ -2,7 +2,7 @@
 *香草/Vanilla是一个基于Openresty实现的高性能Web应用开发框架.*
 <p><a href="http://idevz.github.io/vanilla/"><img border="0" src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png" alt="LuaRocks" width="150px"></a></p>
 
-###安装说明
+###安装
 1. Vanilla使用luarocks管理包依赖
 2. 本身也已经发布到Lua包管理平台Luarocks，需要先安装Luarocks
 3. 需要Lua5.1支持,使用Openresty最新稳定版。
