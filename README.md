@@ -7,12 +7,12 @@
 2. 本身也已经发布到Lua包管理平台Luarocks，需要先安装Luarocks
 3. 需要Lua5.1支持,使用Openresty最新稳定版。
 
-#####*安装示例/Linux*
+#####*安装示例/Linux平台*
 ```
 yum install lua-devel luarocks  -- 需要安装Lua开发版
 luarocks install vanilla
 ```
-#####*MacOSX平台*
+#####*安装示例/MacOSX平台*
 ```
 wget lua5.1(lua5.1 源码地址)
 源码安装lua5.1
