@@ -18,6 +18,6 @@ vanilla start
 ##为什么需要Vanilla
 回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。
 ####Openresty
-* Openresty仅提供了处理HTTP请求的基本解决方案
-* Openresty没有对Web开发做了相应很完善的封装
+* 提供了处理HTTP请求的基本解决方案
+* 给Nginx模块开发开辟了一条全新的道路，我们可以使用Lua来处理Web请求
 * 
