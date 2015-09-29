@@ -44,7 +44,7 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 ├── application（应用代码主体目录）
 │   ├── bootstrap.lua（应用初始化 / 可选<以下未标可选为必选>）
 │   ├── controllers(应用业务代码主体目录)
-│   │   ├── error.lua（应用业务错误处理）
+│   │   ├── error.lua（应用业务错误处理，处理本路径下相应业务报错）
 │   │   └── index.lua（）
 │   ├── library
 │   ├── models
