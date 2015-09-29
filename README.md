@@ -62,9 +62,9 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 │           └── index.html
 ├── config（应用配置目录）
 │   ├── application.lua（应用基础配置 / 路由器、初始化等设置）
-│   ├── errors.lua
-│   ├── nginx.conf
-│   ├── nginx.lua
+│   ├── errors.lua（应用错误信息配置）
+│   ├── nginx.conf（nginx配置文件模板）
+│   ├── nginx.lua（服务各种运行环境配置 / 是否开启lua_code_cache等）
 │   ├── waf-regs
 │   │   ├── args
 │   │   ├── cookie
