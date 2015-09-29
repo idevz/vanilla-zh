@@ -119,7 +119,7 @@ return IndexController
 #####*Vanilla*
 * 基于Openresty开发，具备Openresty一切优良特性
 * 实现了自动化、配置化的Nginx指令集管理
-* 更合理的利用Openresty封装的8个请求处理Phase
+* 更合理的利用Openresty封装的8个处理请求Phase
 * 支持不同运行环境（开发、测试、上线）服务的自动化配置和运行管理
 * 使复杂的Nginx配置对Web业务开发者更透明化
 * 开发者不再需要了解Openresty的实现细节
