@@ -17,7 +17,7 @@ vanilla start
 
 ##为什么需要Vanilla
 回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。
-####Openresty做了
+####Openresty
 * Openresty仅提供了处理HTTP请求的基本解决方案
 * Openresty没有对Web开发做了相应很完善的封装
 * 
