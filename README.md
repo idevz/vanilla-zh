@@ -20,6 +20,7 @@ wget luarocks（luaro源码地址）
 源码安装luarocks
 luarocks install vanilla
 ```
+#####*建议：*
 
 
 ##使用
