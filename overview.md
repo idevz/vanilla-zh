@@ -20,7 +20,7 @@
 │   │       └── config.lua（应用防火墙配置）
 ```
 
-every time... just like this...
+
 
 ###框架层面（Vanilla对Nginx请求的处理/vanilla/v）
 ```
