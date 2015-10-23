@@ -20,8 +20,6 @@
 │   │       └── config.lua（应用防火墙配置）
 ```
 
-
-
 ###框架层面（Vanilla对Nginx请求的处理/vanilla/v）
 ```
 ├── vanilla
@@ -48,3 +46,4 @@
 │       └── views（vanilla支持的模板引擎）
 │           └── rtpl.lua（vanilla目前默认的模板引擎resty.template）
 ```
+
