@@ -46,6 +46,3 @@
 │       └── views（vanilla支持的模板引擎）
 │           └── rtpl.lua（vanilla目前默认的模板引擎resty.template）
 ```
-
-1024
-good friend...
