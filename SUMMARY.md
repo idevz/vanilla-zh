@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [源起](vanilla-start.md)
 * [概览](overview.md)
-* [配置](config.md)
+* [配置](config)
 * [Bootstrap](bootstrap.md)
 * [插件](plugins.md)
 * [路由](plugin.md)
