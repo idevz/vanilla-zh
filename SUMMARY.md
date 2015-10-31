@@ -7,6 +7,6 @@
 * [Bootstrap](bootstrap.md)
 * [插件](plugins.md)
 * [路由](plugin.md)
-* 异常处理
+* [异常处理](error.md)
 * 内建类包
 
