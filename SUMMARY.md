@@ -6,4 +6,5 @@
 * [配置](config.md)
 * [Bootstrap](bootstrap.md)
 * 插件
+* 路由
 
