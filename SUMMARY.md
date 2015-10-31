@@ -5,4 +5,5 @@
 * [概览](overview.md)
 * [配置](config.md)
 * [Bootstrap](bootstrap.md)
+* 插件
 
