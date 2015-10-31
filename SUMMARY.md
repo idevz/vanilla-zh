@@ -8,5 +8,5 @@
 * [插件](plugins.md)
 * [路由](plugin.md)
 * [异常处理](error.md)
-* [内建类包](buildin.md)
+* [内建类](buildin.md)
 
