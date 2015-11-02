@@ -1,4 +1,4 @@
-##说明
+##框架说明
 香草/vanilla 的实现大致分为以下三个部分，本手册将会分别进行详述。
 1. 系统层面关于Nginx指令集的封装、应用防火墙的实现等（vanilla/sys）
 2. 框架层面关于请求处理的各种类包封装（vanilla/v）
@@ -46,3 +46,7 @@
 │       └── views（vanilla支持的模板引擎）
 │           └── rtpl.lua（vanilla目前默认的模板引擎resty.template）
 ```
+
+###单元测试
+vanilla使用busted作为单元测试框架
+#####*[Busted](http://olivinelabs.com/busted/)*
