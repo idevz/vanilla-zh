@@ -9,6 +9,6 @@
 * [路由](route.md)
 * [异常处理](error.md)
 * [内建类](buildin.md)
-* [杂项](sundry/nginx_phrase.md)
+* [杂项](sundry/README.md)
    * [o](sundry/nginx_phrase-.md)
 
