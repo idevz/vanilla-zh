@@ -6,7 +6,7 @@
 * [配置](cconfig.md)
 * [Bootstrap](bootstrap.md)
 * [插件](plugins.md)
-* [路由](plugin.md)
+* [路由](route.md)
 * [异常处理](error.md)
 * [内建类](buildin.md)
 * [杂项](sundry/nginx_phrase.md)
