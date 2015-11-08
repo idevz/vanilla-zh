@@ -1,6 +1,11 @@
 ###Openresty是什么？
 重申一下Openresty是什么？截一张Openresty官网，春哥对Openresty的一个官方说明如下图：
+<<<<<<< HEAD
 ![Openresty官方说明](openresty-cn.png)
+=======
+![Openresty官方说明](imgs/openresty-cn.png)
+
+>>>>>>> origin/master
 我的理解Openresty = Nginx + ngx_http_lua_module + lua_resty_*；它是一个原生Nginx合上一个HTTP_LUA模块，在加上一系列Lua_resty模块组成的一个Ngx_Lua高性能服务生态。
 
 ###Openresty处理HTTP请求的执行阶段
