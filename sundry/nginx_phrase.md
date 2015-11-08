@@ -1,5 +1,7 @@
 ###Openresty是什么？
-重申一下Openresty是什么？Openresty = Nginx + ngx_http_lua_module + lua_resty_*；它是一个原生Nginx合上一个HTTP_LUA模块，在加上一系列Lua_resty模块组成的一个Ngx_Lua高性能服务生态。
+重申一下Openresty是什么？截一张Openresty官网，春哥对Openresty的一个官方说明如下图：
+![Openresty官方说明](屏幕快照 2015-11-08 下午8.43.18.png)
+Openresty = Nginx + ngx_http_lua_module + lua_resty_*；它是一个原生Nginx合上一个HTTP_LUA模块，在加上一系列Lua_resty模块组成的一个Ngx_Lua高性能服务生态。
 
 ###Openresty处理HTTP请求的执行阶段
 Openrestry处理HTTP请求的执行阶段来自于Nginx，Nginx的HTTP框架依据常见的处理流程将处理阶段划分为11个阶段，其中每个处理阶段可以由任意多个HTTP模块流水式地处理请求，Openresty通过ngx_http_lua_module将Lua特性嵌入Nginx，ngx_http_lua_module属于一个Nginx的HTTP模块，为高性能服务开发封装了7个相应HTTP请求处理阶段如下：
