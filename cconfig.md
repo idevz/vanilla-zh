@@ -29,7 +29,6 @@ Appconf.view.auto_render=true		--是否开启自动渲染
 local Errors = {
     [1000] = { status = 500, message = "Controller Err." },
 }
-
 ```
 
 ###Nginx配置
