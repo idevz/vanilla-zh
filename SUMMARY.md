@@ -12,5 +12,5 @@
 * [杂项](sundry/README.md)
    * [Nginx执行阶段](sundry/nginx_phrase.md)
 * [Vanilla使用经验](vanilla_user_practice/README.md)
-   * 用户列表
+   * [用户列表](vanilla_user_practice/yong_hu_lie_biao.md)
 
