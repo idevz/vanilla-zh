@@ -11,5 +11,5 @@
 * [内建类](buildin.md)
 * [杂项](sundry/README.md)
    * [Nginx执行阶段](sundry/nginx_phrase.md)
-* [Vanilla使用经验](vanilla_user_practice/shi_yong_jing_yan.md)
+* [Vanilla使用经验](vanilla_user_practice/README.md)
 
