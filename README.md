@@ -1,43 +1,73 @@
 ##香草/Vanilla
 *香草/Vanilla是一个基于Openresty实现的高性能Web应用开发框架.*
-<p><a href="http://idevz.github.io/vanilla/"><img border="0" src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png" alt="LuaRocks" width="150px"></a></p>
 
-###安装说明
-1. Vanilla使用Luarocks管理包依赖
-2. 安装Luarocks（with lua5.1）
-3. 使用Openresty最新稳定版
+![Vanilla](http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png)
 
-#####*安装示例 / Linux平台*
-```
-yum install lua-devel luarocks  -- 需要安装Lua开发版
-luarocks install vanilla
-```
-#####*安装示例 / MacOSX平台*
-```
-wget lua5.1(lua5.1 源码地址)
-源码安装lua5.1
-wget luarocks（luarocks源码地址）
-源码安装luarocks
-luarocks install vanilla
-```
-#####*为何建议Lua5.1版本*
-1. *Openresty执行Lua需要基于Luajit加速，Luajit使用Lua5.1的ABI*
-2. *Luarocks会根据Lua版本识别相应的包*
-3. *Vanilla运行Openresty前需要基于Lua5.1做服务相关自动化配置*
+### *邮件列表*
+- vanilla-en <vanilla-en@googlegroups.com>
+- vanilla-devel <vanilla-devel@googlegroups.com>
+- vanilla中文邮件列表 <vanilla@googlegroups.com>
 
-#####*为何建议源码安装*
-1. *源码安装更方便版本控制*
-2. *尤其MacOSX10.9后brew默认安装的Lua是5.2版本，而Openresty必须源码安装5.1*
+### *安装*
+*目前Vanilla支持两种安装方式*
 
-###使用
-#####*应用代码骨架生成及服务启动*
+- Make（推荐使用此种）
+- Luarocks
+
+#### *```make install```安装须知*
+Vanilla 支持的选项都提供了默认值，如果你的环境与默认值不一样，请configure时指定成你自己的。
+
+特别注意选项```--openresty-path```，默认为```/usr/local/openresty```，请确保设置正确。
+
+可以在源码目录下执行```configure --help```来查看安装选项的使用方法。
+
+下面是一个简单的安装示例：
+```
+./configure --prefix=/usr/local/vanilla --openresty-path=/usr/local/openresty
+
+make install （如果没有C模块【目前支持lua-filesystem】，则不需要make，直接make install）
+```
+#### *```luarocks install```安装须知*
+*可以使用luarocks安装vanilla，但是下面三点请注意*
+1. Luarocks应该基于lua5.1.x的版本安装，因为其他版本Lua和Luajit的ABI存在兼容性问题。
+2. Luarocks安装的Vanilla在nginx.conf文件的NGX_PATH变量不可用。
+3. 请确保nginx命令可以直接运行（nginx命令在你的环境变量中）
+
+### Vanilla 使用
+#### *Vanilla命令*
+*Vanilla 目前提供了两个命令 ```vanilla```，和 ```vanilla-console```*
+- ```vanilla```用来初始化应用骨架，停启服务（添加--trace参数可以看到执行的命令）
+- ```vanilla-console``` 是一个交互式命令行，主要提供一种方便学习Lua入门的工具，可以使用一些vanilla开发环境下的包，比如table输出的lprint_r方法。
+
+命令行执行 ```vanilla```就能清晰看到 ```vanilla```命令提供的选项。
+
+~~~
+vanilla
+Vanilla v0.1.0-rc3, A MVC web framework for Lua powered by OpenResty.
+
+Usage: vanilla COMMAND [ARGS] [OPTIONS]
+
+The available vanilla commands are:
+ new [name]             Create a new Vanilla application
+ start                  Starts the Vanilla server
+ stop                   Stops the Vanilla server
+
+Options:
+ --trace                Shows additional logs
+~~~
+
+#### *创建应用*
 ```
 vanilla new app_name
 cd app_name
 vanilla start [--trace]     -- 默认运行在development环境
+
+## 在linux的bash环境下：
 VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
+## 在BSD等tcsh环境下：
+setenv VA_ENV production;vanilla start [--trace]  -- 运行在生产环境
 ```
-#####*代码目录结构说明*
+#### *代码目录结构*
 ```
  /Users/zj-git/app_name/ tree ./
 ./
@@ -76,14 +106,9 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 ├── logs（日志目录）
 │   └── hack（攻击日志目录 / 保持可写权限）
 ├── pub（应用Nginx配置根路径）
-│   └── index.lua（应用请求入口）
-└── spec（基于busted的单元测试路径）
-    ├── controllers
-    │   └── index_controller_spec.lua
-    ├── models
-    └── spec_helper.lua
+    └── index.lua（应用请求入口）
 ```
-#####*业务代码示例 IndexController*
+#### *业务代码示例 IndexController*
 ```
 local IndexController = {}
 
@@ -98,32 +123,42 @@ end
 
 return IndexController
 ```
-#####*模板示例 views/index/index.html*
+#### *模板示例 views/index/index.html*
 ```
 <!DOCTYPE html>
 <html>
 <body>
-  <img src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/ca65fa784406a36ba4fc41d14e21661e_1364_1494.png">
+  <img src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png">
   <h1><a href = 'https://github.com/idevz/vanilla'>{{vanilla}}</a></h1><h5>{{zhoujing}}</h5>
 </body>
 </html>
 ```
 
-###为什么需要Vanilla
+### 为什么需要Vanilla
 回答这个问题，我们只需要看清楚Openresty和Vanilla各自做了什么即可。
-#####*Openresty*
-* 提供了处理HTTP请求的全套整体解决方案，是一个强大的平台
-* 给Nginx模块开发开辟了一条全新的道路，我们可以使用Lua来处理Web请求
-* 形成了一个日趋完善的生态，这个生态涵盖了高性能Web服务方方面面 
+#### *Openresty*
 
-#####*Vanilla*
-* 基于Openresty开发，具备Openresty一切优良特性
-* 实现了自动化、配置化的Nginx指令集管理
-* 更合理的利用Openresty封装的8个处理请求Phase
-* 支持不同运行环境（开发、测试、上线）服务的自动化配置和运行管理
-* 使复杂的Nginx配置对Web业务开发者更透明化
-* 开发者不再需要了解Openresty的实现细节，而更关注业务本身
-* 实现了Web开发常规的调试，错误处理，异常捕获
-* 实现了请求的完整处理流程和插件机制，支持路由协议、模板引擎的配置化
-* 整合、封装了一系列Web开发常用的工具集、类库（cookie、应用防火墙等）
-* 功能使用方便易于扩展
+- 提供了处理HTTP请求的全套整体解决方案
+- 给Nginx模块开发开辟了一条全新的道路，我们可以使用Lua来处理Web请求
+- 形成了一个日趋完善的生态，这个生态涵盖了高性能Web服务方方面面 
+
+#### *Vanilla*
+- 使复杂的Nginx配置对Web业务开发者更透明化
+- 开发者不再需要了解Openresty的实现细节，而更关注业务本身
+- 实现了Web开发常规的调试，错误处理，异常捕获
+- 实现了请求的完整处理流程和插件机制，支持路由协议、模板引擎的配置化
+- 整合、封装了一系列Web开发常用的工具集、类库（cookie、应用防火墙等）
+- 实现了自动化、配置化的Nginx指令集管理
+- 更合理的利用Openresty封装的8个处理请求Phase
+- 支持不同运行环境（开发、测试、上线）服务的自动化配置和运行管理
+- 功能使用方便易于扩展
+- 基于Openresty开发，具备Openresty一切优良特性
+
+### 社区组织
+#### *QQ群&&微信公众号*
+- *Openresty/Vanilla开发QQ群：205773855（专题讨论Vanilla相关话题）*
+- *Openresty 技术交流QQ群：34782325（讨论OpenResty和各种高级技术）*
+- *Vanilla开发微信公众号:Vanilla-OpenResty(Vanilla相关资讯、文档推送)*
+
+
+[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=673157ee0f0207ce2fb305d15999225c5aa967e88913dfd651a8cf59e18fd459)
