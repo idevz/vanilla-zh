@@ -4,11 +4,11 @@
 - *路由协议栈*
 - *路由协议的加载与管理*
 
-###App配置
+###bootstrap初始化路由器
 #####*application.lua*
 #####*errors.lua*
-###Nginx配置
+###路由协议栈
 #####*nginx.lua*
-###WAF配置
+###路由协议的加载与管理
 #####*waf.lua*
 
