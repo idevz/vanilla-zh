@@ -13,7 +13,7 @@
 
 ### *简单路由协议```vanilla.v.routes.simple```用法*
 
-```vanilla.v.routes.simple```是Vanilla协议栈中默认使用的协议，不需要特殊配置，直接可用
+简单路由协议```vanilla.v.routes.simple``` 是Vanilla协议栈中默认使用的协议，不需要特殊配置，直接可用
 
 ##### *使用Tips：*
 
