@@ -4,12 +4,7 @@
 
 - *简单路由协议```vanilla.v.routes.simple```用法*
 - *Restful路由协议```vanilla.v.routes.restful```用法*
-- *路由器*
-- *路由协议*
-- *默认的路由协议*
-- *bootstrap初始化路由器*
-- *路由协议栈*
-- *路由协议的加载与管理*
+- *路由实现*
 
 ### *简单路由协议```vanilla.v.routes.simple```用法*
 
@@ -75,7 +70,7 @@ return restful
 2. 接口版本的访问需要在请求头（accept）中提供相应的版本信息如：```-H 'accept: application/vnd.idevz.org.v1.2.3.json'```
 3. 目前支持的方法```GET,POST,HEAD,OPTIONS,PUT,PATCH,DELETE,TRACE,CONNECT```
 
-### 路由器
+### 路由实现
 
 *Vanilla通过路由器管理着一个路由协议栈，并通过遍历协议栈上每一个路由协议的```match```方法来获取当前请求的```controller```和```action```*
 
