@@ -20,7 +20,54 @@
 - *URI为根'/'时，```controller```和```action```都默认为```index```*
 - *按照URI的路径进行分割，最后的一段为```action```，前面则为```controller```（例如URI为'/a/b/c'，则路由结果```controller```为```a.b```，```action```为```c```）*
 
-### *简单路由协议```vanilla.v.routes.restful```用法*
+### *Restful路由协议```vanilla.v.routes.restful```用法*
+
+Restful路由协议```vanilla.v.routes.restful```以一种```map```的形式来配置Vanilla路由规则，提供了更灵活的URL控制，如果需要启用此路由，需要以下几步：
+
+- *Bootstrap中初始化router*
+- *在项目config/路径下放置```restful.lua```文件，并在```restful.lua```中配置相关路由规则*
+
+##### *Bootstrap中初始化initRoute，并打开boot_list中的```Bootstrap.initRoute```*
+
+```lua
+function Bootstrap:initRoute()
+    local router = self.dispatcher:getRouter()
+    local restful_route = require('vanilla.v.routes.restful'):new(self.dispatcher:getRequest())
+    router:addRoute(restful_route)		--此时协议栈中加上默认的vanilla.v.routes.simple，一共两个路由协议，如果只想使用一个路由协议，可以给addRoute传入第二个参数true	
+end
+
+function Bootstrap:boot_list()
+    return {
+        -- Bootstrap.initWaf,
+        -- Bootstrap.initErrorHandle,
+        Bootstrap.initRoute,
+        -- Bootstrap.initView,
+        -- Bootstrap.initPlugin,
+    }
+end
+```
+
+##### *项目config/restful.lua配置（文件名必须是restful.lua，否则无法加载）*
+```
+local restful = {
+    v1={},
+    v={}
+}
+
+restful.v.GET = {
+    {pattern = '/user/:user_id', controller = 'test.index', action = 'web_rule'},
+    {pattern = '/', controller = 'test.index', action = 'web_root'},
+}
+restful.v1.GET = {
+    {pattern = '/user/:user_id', controller = 'test.index', action = 'api_v1_rule'},
+    {pattern = '/', controller = 'test.index', action = 'api_root'},
+    {pattern = '/test/index/index', controller = 'test.index', action = 'index'},
+}
+
+return restful
+```
+
+##### *配置*
 
 ### 路由器
 
