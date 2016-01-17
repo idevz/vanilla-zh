@@ -47,11 +47,11 @@ function Bootstrap:boot_list()
 end
 ```
 
-##### *项目config/restful.lua配置（文件名必须是restful.lua，否则无法加载）*
+##### *项目config/restful.lua配置*
 ```
 local restful = {
-    v1={},
-    v={}
+    v1={},				--接口版本定义
+    v={}				--web版本定义
 }
 
 restful.v.GET = {
@@ -67,7 +67,13 @@ restful.v1.GET = {
 return restful
 ```
 
-##### *配置*
+请求实例（app_name：idevz.org）：```curl -X GET -H 'accept: application/vnd.idevz.org.v1.2.3.json' http://localhost:9210/test/index/INDEX```
+
+##### *restful.lua配置Tips:*
+
+1. 定义各种版本的空表，如上例子中```v1```和```v```两个版本，```v```后面不跟数字，则表示web服务的版本。
+2. 接口版本的访问需要在请求头（accept）中提供相应的版本信息如：```-H 'accept: application/vnd.idevz.org.v1.2.3.json'```
+3. 目前支持的方法```GET,POST,HEAD,OPTIONS,PUT,PATCH,DELETE,TRACE,CONNECT```
 
 ### 路由器
 
@@ -85,11 +91,49 @@ function Router:getCurrentRouteName() --获取当前请求所使用的路由协�
 function Router:route() --路由当前请求
 ```
 
+##### *路由协议栈*
+```lua
+function Router:new(request)
+    local instance = {
+        routes = {require('vanilla.v.routes.simple'):new(request)},
+    	request = request
+    }
 
-### 路由协议
-### 默认的路由协议
-##### *application.lua*
-##### *errors.lua*
-### bootstrap初始化路由器
-### 路由协议栈
-### 路由协议的加载与管理
+    setmetatable(instance, {__index = self})
+    return instance
+end
+```
+Router.routes就是Router管理的路由协议栈，默认已经添加```vanilla.v.routes.simple```实例，路由器由一个```request```实例和一个协议栈构成。
+而每个路由协议的关键在于```match```方法，这是返回当前请求走向哪个```controller```和哪个```action```的关键。
+```
+local function route_match(route)
+    return route:match()
+end
+
+function Router:route()
+    if #self.routes >= 1 then
+        local alive_route_num = 0
+        local route_err = {}
+        for k,route in ipairs(self.routes) do
+            if route then
+                alive_route_num = alive_route_num + 1
+                local ok, controller_name_or_error, action = pcall(route_match, route)
+                if ok and controller_name_or_error then
+                    self.current_route = route
+                    return controller_name_or_error, action
+                else
+                    route_err[k] = controller_name_or_error
+                end
+            end
+        end
+        error({ code = 201, msg = {
+            Routes_No_Match = alive_route_num .. "Routes All Didn't Match. Errs Like: " .. tconcat( route_err, ", ")}})
+    end
+    error({ code = 201, msg = {Empty_Routes = 'Null routes added.'}})
+end
+```
+
+##### *路由协议的加载与管理*
+
+一张图展示路由器对路由协议栈的管理：
+![Vanilla路由实现原理](route.png)
