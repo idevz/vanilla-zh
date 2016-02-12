@@ -5,7 +5,6 @@
 - *WAF配置*
 
 ###App配置
-i'm back.
 #####*application.lua*
 #####*errors.lua*
 ###Nginx配置
