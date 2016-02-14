@@ -3,5 +3,5 @@
 
 ###Nginx相关
 #####*nginx phrase*
-###框架本身
+###vanilla
 #####*我理想中的Web框架*
