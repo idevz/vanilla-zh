@@ -7,7 +7,7 @@
 
 ###App配置
 #####*application.lua*
-#####*errors.lua*
+<!-- #####*errors.lua* -->
 ###Nginx配置
 #####*nginx.lua*
 ###WAF配置
