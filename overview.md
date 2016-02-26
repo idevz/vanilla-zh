@@ -39,7 +39,7 @@
 │       ├── plugin.lua（vanilla插件实现）
 │       ├── registry.lua（vanilla数据寄存器）
 │       ├── request.lua（vanilla请求封装）
-│       ├── response.lua（vanilla相应封装）
+│       ├── response.lua（vanilla响应封装）
 │       ├── routes（vanilla实现的路由协议簇，目前仅支持简单路由，路由协议实现了URL到controller、action的规则化映射）
 │       │   └── simple.lua（简单路由）
 │       ├── view.lua（vanilla视图层）
