@@ -73,47 +73,7 @@ VA_ENV=production vanilla start [--trace]  -- 运行在生产环境
 ## 在BSD等tcsh环境下：
 setenv VA_ENV production;vanilla start [--trace]  -- 运行在生产环境
 ```
-#### *代码目录结构*
-```
- /Users/zj-git/app_name/ tree ./
-./
-├── application（应用代码主体目录）
-│   ├── bootstrap.lua（应用初始化 / 可选<以下未标可选为必选>）
-│   ├── controllers(应用业务代码主体目录)
-│   │   ├── error.lua（应用业务错误处理，处理本路径下相应业务报错）
-│   │   └── index.lua（hello world示例）
-│   ├── library（应用本地类包）
-│   ├── models（应用数据处理类）
-│   │   ├── dao（数据层业务处理）
-│   │   │   └── table.lua
-│   │   └── service（服务化业务处理，对DAO的再次封装）
-│   │       └── user.lua
-│   ├── nginx（*Openresty所封装Nginx请求处理各Phase）
-│   │   └── init.lua（*init_by_lua示例）
-│   ├── plugins（插件目录）
-│   └── views（视图层，与controllers一一对应）
-│       ├── error（错误模板）
-│       │   └── error.html
-│       └── index（index controller模板）
-│           └── index.html
-├── config（应用配置目录）
-│   ├── application.lua（应用基础配置 / 路由器、初始化等设置）
-│   ├── errors.lua（应用错误信息配置）
-│   ├── nginx.conf（nginx配置文件模板）
-│   ├── nginx.lua（服务各种运行环境配置 / 是否开启lua_code_cache等）
-│   ├── waf-regs（应用防火墙规则配置目录）
-│   │   ├── args
-│   │   ├── cookie
-│   │   ├── post
-│   │   ├── url
-│   │   ├── user-agent
-│   │   └── whiteurl
-│   └── waf.lua（服务防火墙配置）
-├── logs（日志目录）
-│   └── hack（攻击日志目录 / 保持可写权限）
-├── pub（应用Nginx配置根路径）
-    └── index.lua（应用请求入口）
-```
+
 #### *业务代码示例 IndexController*
 ```
 local IndexController = {}
