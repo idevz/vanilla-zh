@@ -7,7 +7,7 @@
    * [目录结构](intro/index_structure.md)
 * [升级与安装](update_install.md)
    * [升级](update.md)
-       * [从vanilla-0.1.0.rc4到vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
+       * [如何从vanilla-0.1.0.rc4到vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
    * [安装](install.md)
        * [vanilla-0.1.0.rc5](update/0_1_rc5.md)
        * [vanilla-0.1.0.rc4](update/0_1_rc4.md)
