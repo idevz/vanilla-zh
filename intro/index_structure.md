@@ -1,14 +1,16 @@
-##代码结构
+##目录结构
 
-###0.1.0.rc5推荐的代码结构
+###Vanilla-0.1.0.rc5推荐的目录结构
 
 *0.1.0.rc5是对0.1.0.rc4工程化的改进版，主要有以下2点推荐：*
 
-1.Vanilla相关的框架和App放到统一的一个目录（Vanilla_Root）下，比如我的是`/Users/zhoujing/vanilla`（方便管理，另外也告诉你Vanilla就是一个框架，放在哪儿都可以使用）
+#### Vanilla_Root（框架和App都放到这个路径下）
+Vanilla相关的框架和App放到统一的一个目录（Vanilla_Root）下，比如我的是`/Users/zhoujing/vanilla`（方便管理，另外也告诉你Vanilla就是一个框架，放在哪儿都可以使用）
 
 ![vanilla root](vanilla_root.png)
 
-2.将Vanilla安装到`{Vanilla_Root}/framework`下，并使用全路径新建App：`vanilla new {Vanilla_Root}/va_app_demo`
+#### 框架与App
+将Vanilla安装到`{Vanilla_Root}/framework`下，并使用全路径新建App：`vanilla new {Vanilla_Root}/va_app_demo`
 
 框架的目录结构如下
 

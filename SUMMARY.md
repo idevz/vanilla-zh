@@ -1,13 +1,13 @@
 # Summary
 
 * [简介](README.md)
-   * [工程化的0.1.0.rc5](intro/why_0_1_rc5.md)
+   * [工程化的vanilla-0.1.0.rc5](intro/why_0_1_rc5.md)
    * [源起](intro/vanilla_start.md)
    * [概览](intro/overview.md)
    * [目录结构](intro/index_structure.md)
 * [升级与安装](update_install.md)
    * [升级](update.md)
-       * [从0.1.0.rc4到0.1.0.rc5](update/0_1_rc4_rc5.md)
+       * [从vanilla-0.1.0.rc4到vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
    * [安装](install.md)
        * [vanilla-0.1.0.rc5](update/0_1_rc5.md)
        * [vanilla-0.1.0.rc4](update/0_1_rc4.md)
