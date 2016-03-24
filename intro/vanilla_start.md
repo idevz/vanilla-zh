@@ -14,3 +14,13 @@
 
 ###感谢生命中的你们
 这些年自己一直在各种技术社区，邮件组，各种分享活动中不断学习成长，以春哥（agentzh）为代表的Openresty社区给我的感触最为深刻，那里是一群默默进取的人，春哥以自己儒雅的个人魅力以及无私奉献的开源精神鼓舞着无数的开发者，大家聚在一起讨论、学习、共享、支持，我个人的成长离不开包括Openresty社区在内的整个开源世界，我很庆幸能遇到这么多志同道合的同学，在此深表感谢。
+
+### 社区组织
+#### *QQ群&&微信公众号*
+- *Openresty/Vanilla开发QQ群：205773855（专题讨论Vanilla相关话题）*
+- *Openresty 技术交流QQ群：34782325（讨论OpenResty和各种高级技术）*
+- *Vanilla开发微信公众号:Vanilla-OpenResty(Vanilla相关资讯、文档推送)*
+
+![vanilla](va_c.jpeg)
+
+[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=673157ee0f0207ce2fb305d15999225c5aa967e88913dfd651a8cf59e18fd459)

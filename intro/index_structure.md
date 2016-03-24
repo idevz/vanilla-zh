@@ -2,7 +2,7 @@
 
 ###Vanilla-0.1.0.rc5推荐的目录结构
 
-*0.1.0.rc5是对0.1.0.rc4工程化的改进版，主要有以下2点推荐：*
+*vanilla-0.1.0.rc5是对vanilla-0.1.0.rc4工程化的改进版，主要有以下2点推荐：*
 
 #### Vanilla_Root（框架和App都放到这个路径下）
 Vanilla相关的框架和App放到统一的一个目录（Vanilla_Root）下，比如我的是`/Users/zhoujing/vanilla`（方便管理，另外也告诉你Vanilla就是一个框架，放在哪儿都可以使用）
@@ -63,3 +63,13 @@ Vanilla App的目录结构如下
 ├── pub（应用Nginx配置根路径）
     └── index.lua（应用请求入口）
 ```
+
+### 社区组织
+#### *QQ群&&微信公众号*
+- *Openresty/Vanilla开发QQ群：205773855（专题讨论Vanilla相关话题）*
+- *Openresty 技术交流QQ群：34782325（讨论OpenResty和各种高级技术）*
+- *Vanilla开发微信公众号:Vanilla-OpenResty(Vanilla相关资讯、文档推送)*
+
+![vanilla](va_c.jpeg)
+
+[![QQ](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=673157ee0f0207ce2fb305d15999225c5aa967e88913dfd651a8cf59e18fd459)
