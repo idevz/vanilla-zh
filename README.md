@@ -16,7 +16,7 @@
 
 ### *安装*
 
-####*Vanilla-V0.1.0-rc4.1 及其之前版本的配置和使用，请查阅[README-V0.1.0-rc4.1.md](v-0.1.0.rc4/README-zh-V0.1.0-rc4.1.md)*
+####*Vanilla-V0.1.0-rc4.1 及其之前版本的配置和使用，请查阅 [README-V0.1.0-rc4.1.md](install/0_1_rc4.md)*
 
 #### *通过 ./setup-framework 脚本安装 Vanilla*
 
