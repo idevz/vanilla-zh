@@ -19,6 +19,7 @@
    * [如何使用models/dao](quick_learning/models_dao.md)
    * [如何使用models/service](quick_learning/models_service.md)
 * [APIs](api.md)
+   * [配置](cconfig.md)
    * [Bootstrap](apis/bootstrap.md)
    * [插件](apis/plugins.md)
    * [路由](apis/route.md)
