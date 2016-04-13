@@ -14,6 +14,16 @@
 - vanilla-0.1.0.rc5（*你没看错，自0.1.0.rc5起，vanilla的命令行和框架代码都带着版本号，方便多版本共存，也方便框架升级*）
 - v-console-0.1.0.rc5
 
+## 特性
+
+- 提供很多优良组件诸如：bootstrap、 router、 controllers、 models、 views。
+- 强劲的插件体系。
+- 多 Application 部署。
+- 多版本框架共存，支持便捷的框架升级。
+- 一键 nginx 配置、 应用部署。
+- 便捷的服务批量管理。
+- 你只需关注自身业务逻辑。
+
 ## 安装
 
 ##### *Vanilla-V0.1.0-rc4.1 或之前版本的 Vanilla 安装请参见 ： [README-V0.1.0-rc4.1.md](README/README-zh-V0.1.0-rc4.1.md)*
