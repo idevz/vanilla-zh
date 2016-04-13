@@ -14,106 +14,32 @@
 - vanilla-0.1.0.rc5（*你没看错，自0.1.0.rc5起，vanilla的命令行和框架代码都带着版本号，方便多版本共存，也方便框架升级*）
 - v-console-0.1.0.rc5
 
-### *安装*
+## 安装
 
-####*Vanilla-V0.1.0-rc4.1 及其之前版本的配置和使用，请查阅 [README-V0.1.0-rc4.1.md](install/0_1_rc4.md)*
+##### *Vanilla-V0.1.0-rc4.1 或之前版本的 Vanilla 安装请参见 ： [README-V0.1.0-rc4.1.md](README/README-zh-V0.1.0-rc4.1.md)*
 
-#### *通过 ./setup-framework 脚本安装 Vanilla*
-
-*`./setup-framework` 脚本是对 `make install` 后面安装方式一个自动化封装，仅需要指定 OpenResty 的安装路径，即可简单安装 Vanilla*
-
-```
-./setup-framework -h
-Usage: ./setup-framework
-                 -h   show this help info
-                 -v   VANILLA_PROJ_ROOT, vanilla project root, will contain vanilla framework and apps
-                 -o   OPENRESTY_ROOT, openresty install path(openresty root)
+``` bash
+$ ./setup-framework -v $VANILLA_PROJ_ROOT -o $OPENRESTY_ROOT        #运行 ./setup-framework -h 查看更多参数细节
 ```
 
-`./setup-framework` 脚本参数选项说明：
+## 快速开始
 
-- -v ： 指定 Vanilla 项目的根目录，此选项默认为 `/data/vanilla`，默认则将 Vanilla 安装到 `/data/vanilla/framework/0_1_0_rc5/vanilla/` 目录下。
+**部署你的第一个Vanilla Application**
 
-- -o ： 指定 OpenResty 的安装目录， 此选项默认为 `/usr/local/openresty`， 如果你的 OpenResty 安装路径与此不同，则需要指定为正真的 OpenResty 安装目录。
-
-安装目录结构如下：
-
-```
-tree /data/vanilla -L 2
-/data/vanilla
-├── framework
-│   ├── 0_1_0_rc5
-│   └── 0_1_0_rc5.old_2016_04_12_11_04_18 # 重复安装则会将之前的老版本按照时间自动备份
+``` bash
+$ ./setup-vanilal-demoapp  [-a $VANILLA_APP_ROOT -u $VANILLA_APP_USER -g $VANILLA_APP_GROUP -e $VANILLA_RUNNING_ENV]    #运行 ./setup-vanilal-demoapp -h 查看更多参数细节
 ```
 
-#### *通过 ```make install``` 安装 Vanilla*
+**启动你的 Vanilla 服务**
 
-Vanilla 支持的选项都提供了默认值，如果你的环境与默认值不一样，请configure时指定成你自己的。
-
-特别注意选项```--openresty-path```，默认为```/usr/local/openresty```，请确保设置正确。
-
-可以在源码目录下执行```configure --help```来查看安装选项的使用方法。
-
-下面是一个简单的安装示例：
-
-```
-./configure --prefix=/usr/local/vanilla --openresty-path=/usr/local/openresty
-
-make install （不需要make，直接make install）
+``` bash
+$ ./$VANILLA_APP_ROOT/va-appname-service start
 ```
 
+## 更多信息
 
-### Vanilla 使用
+- 参见 [文档](https://idevz.gitbooks.io/vanilla-zh/content/index.html)
 
-####*Vanilla-V0.1.0-rc4.1 及其之前版本的配置和使用，请查阅[README-zh-V0.1.0-rc4.1.md](README/README-zh-V0.1.0-rc4.1.md)*
-
-#### *Vanilla命令*
-
-*Vanilla-V0.1.0-rc5 目前依旧提供两个命令， 但是 rc5 以后提供的命令与安装的框架代码一样，都自动携带版本号，```vanilla-0.1.0.rc5```，和 ```v-console-0.1.0.rc5``` 这样做的好处在于方便多版本共存以及 Vanilla 的无痛升级*
-- ```vanilla-0.1.0.rc5```用来初始化应用骨架，而 `vanilla-0.1.0.rc5` 之后，服务的停启不再通过 `vanilla-0.1.0.rc5` 命令管理，而是通过项目路径下面的 `va-appname-service` 脚本进行管理，使用细节见后面说明。
-- ```v-console-0.1.0.rc5``` 是一个交互式命令行，主要提供一种方便学习Lua入门的工具，可以使用一些 vanilla 开发环境下的包，比如table输出的 lprint_r 方法等。
-
-#### *创建应用*
-```
-vanilla-0.1.0.rc5 new app_full_path							#使用 vanilla-0.1.0.rc5 命令 自动生成应用骨架，注意这里需要传递应用的全路径，而不只是一个APP_NAME
-chmod +x app_full_path/va-appname-service					#给生成的项目骨架根目录下面的 va-appname-service 脚本添加执行权限
-app_full_path/va-appname-service initconf [dev]				#初始化应用的nginx配置文件，此文件基于 app_full_path/nginx_conf 下面的配置文件生成，如果有特殊选项需要配置，可以先修改 app_full_path/nginx_conf 下面的配置文件，再进行 initconf 操作，[dev] 参数为可选项， 加上则表示执行开发环境相关操作，不加则默认为生产环境
-app_full_path/va-appname-service start [dev]				#启动生成的服务，即可通过http://localhost访问服务，[dev] 参数如上。
-```
-上面创建应用的过程也可以通过脚本 `./setup-vanilal-demoapp` 简单自动完成：
-```
-./setup-vanilal-demoapp -h
-Usage: ./setup-vanilal-demoapp -h   show this help info
-                 -a   VANILLA_APP_ROOT, app absolute path(which path to init app)
-                 -u   VANILLA_APP_USER, user to run app
-                 -g   VANILLA_APP_GROUP, user group to run app
-                 -e   VANILLA_RUNNING_ENV, app running environment
-```
-`./setup-vanilal-demoapp` 脚本参数选项说明：
-- -a ： 指定初始化应用的全路径（绝对路径），默认为 /data/vanilla/vademo
-- -u ： 指定运行服务的用户名，默认为 idevz
-- -g ： 指定运行服务的用户组，默认为 sina
-- -e ： 指定运行服务的环境，默认为'' 指生产环境
-
-安装目录结构如下：
-
-```
-tree /data/vanilla/ -L 1
-/data/vanilla/
-├── framework 							# vanilla 框架安装目录
-├── vademo 								# 应用初始化目录
-└── vademo.old_2016_04_12_11_04_26 		# 重复安装后会将之前版本按照时间进行备份
-```
-
-#### *应用配置初始化与服务管理*
-*通过脚本 /data/vanilla/vademo/va-vademo-service 管理 vademo 服务*
-
-```
-/data/vanilla/vademo/va-vademo-service -h
-Usage: ./va-ok-service {start|stop|restart|reload|force-reload|confinit[-f]|configtest} [dev] #dev 指定了运行的环境，不加 dev 则默认为生产环境。
-```
-
-注意：* 如果没有使用 ./setup-vanilal-demoapp 脚本，而是手动 new 的 app， 则在启动服务之前需要先运行 /data/vanilla/vademo/va-vademo-service initconf [dev] 对相应环境的 nginx 配置文件进行初始化。  *
 
 #### *代码目录结构*
 ```
