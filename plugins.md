@@ -11,7 +11,7 @@
 ###使用
 #####*例子：一个管理后台的插件Admin，功能就是对用户权限做一个判定（判断比如这个用户是否已经登录，如果未登录则不允许访问）*
 我们可以在请求路由结束后，已经计算出当前请求需要执行的controller和action的情况下，在AdminPlugin:routerShutdown这个hook添加一个验证的逻辑，如果为登录则跳转到登录页面。
-```
+``` lua
 function AdminPlugin:routerShutdown(request, response)
 	if auth() ~= true then
 		return ngx.redirect("/login", ngx.HTTP_MOVED_TEMPORARILY)
