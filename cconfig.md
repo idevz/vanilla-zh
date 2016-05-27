@@ -7,6 +7,9 @@
 ###App配置
 #####*application.lua*
 ```
+Appconf.sysconf = {				--系统预加载配置文件
+    'v_resource',
+}
 Appconf.name = 'app_name'		--app名称，执行vanilla new命令时给定的应用名
 
 Appconf.route='vanilla.v.routes.simple'		--路由器，指定URL路由方式，目的解析出需要执行的controller与action
