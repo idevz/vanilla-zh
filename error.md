@@ -8,4 +8,3 @@
 ###Nginx配置
 #####*nginx.lua*
 ###WAF配置
-#####*waf.lua*
