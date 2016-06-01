@@ -11,3 +11,5 @@
 ###WAF配置
 
 bad request
+PUSH
+for
