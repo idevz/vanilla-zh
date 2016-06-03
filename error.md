@@ -9,3 +9,6 @@
 #####*nginx.lua*
 
 ###WAF配置
+
+bad request
+Laravel
