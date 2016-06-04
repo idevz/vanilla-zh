@@ -9,4 +9,3 @@
 #####*nginx.lua*
 ###WAF配置
 #####*waf.lua*
-good day
