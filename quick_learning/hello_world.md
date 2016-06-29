@@ -3,3 +3,4 @@ print_r
 Class
 local
 code Cache
+vanilla_init
