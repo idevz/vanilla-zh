@@ -258,9 +258,15 @@
 ![128.jpg](qcon2015brokenperformancetools/128.jpg)
 
 
-##下面是Vanilla社区组织
-#####*QQ群&&微信公众号*
-![Vanilla-OpenResty开发QQ群](https://raw.githubusercontent.com/idevz/vanilla/master/vanilla_QQ.png)
-![Vanilla-OpenResty开发公众号](https://raw.githubusercontent.com/idevz/vanilla/master/vanilla_openresty.png)
+### 社区组织
+#### *QQ群&&微信公众号*
+- *Openresty/Vanilla 开发 1 群：205773855（已满）*
+- *Openresty/Vanilla 开发 2 群：419191655*
+- *Openresty 技术交流 1 群：34782325（已满）*
+- *Openresty 技术交流 2 群：481213820（已满）*
+- *Openresty 技术交流 3 群：124613000*
+- *Vanilla开发微信公众号:Vanilla-OpenResty(Vanilla相关资讯、文档推送)*
+
+![vanilla](va_c.jpeg)
 
 [![QQ](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=673157ee0f0207ce2fb305d15999225c5aa967e88913dfd651a8cf59e18fd459)
