@@ -1,6 +1,10 @@
 ##Vanilla 的 Hello World
 *Vanilla 的起步非常简单， 根据README 文档中的步骤在环境中部署完框架后，使用 setup-vanilal-demoapp 脚本即可快速初始化一个项目.*
 
+```bash
+./setup-framework -v $MCODE/www/vanilla -o /usr/local/openresty-1.11.2.1
+```
+
 ###setup-framework 部署框架核心
 #####*-v 参数指定 Vanilla 框架部署路径*
 *-v 所指定的路径下面会自动生成 freamwork 目录，里面会按照日期来区分不同 Vanilla 版本（前提是如果安装了多个版本 Vanilla）*
