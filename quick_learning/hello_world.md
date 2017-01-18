@@ -2,6 +2,8 @@
 *Vanilla 的起步非常简单， 根据README 文档中的步骤在环境中部署完框架后，使用 setup-vanilal-demoapp 脚本即可快速初始化一个项目.*
 
 ```bash
+git clone https://github.com/idevz/vanilla.git
+cd vanilla
 ./setup-framework -v $MCODE/www/vanilla -o /usr/local/openresty-1.11.2.1
 ```
 
