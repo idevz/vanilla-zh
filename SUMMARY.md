@@ -20,6 +20,8 @@
 * [APIs](api.md)
    * [配置](cconfig.md)
    * [Bootstrap](apis/bootstrap.md)
+   * [Controllers](apis/controller.md)
+   * [插件](apis/plugins.md)
    * [插件](apis/plugins.md)
    * [路由](apis/route.md)
    * [异常处理](apis/error.md)
