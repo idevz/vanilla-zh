@@ -14,7 +14,6 @@
    * [Hello World](quick_learning/hello_world.md)
    * [如何调试](quick_learning/debug.md)
    * [如何新增一个Controller](quick_learning/add_controller.md)
-   * [如何给模板传递参数](quick_learning/template_args.md)
    * [如何使用models/dao](quick_learning/models_dao.md)
    * [如何使用models/service](quick_learning/models_service.md)
 * [APIs](api.md)

@@ -35,6 +35,8 @@ return IndexController
 * 每个 action 的返回值都必须是字符串，所以可以知道 `view:display()` 和 `view:render()` 方法都是返回字符串
 * IndexController:action_b （index Controller 中的 action_b Action，这里注意，action 的方法名必须小写），使用默认的简单路由协议，访问 URI 为 `curl http://localhost:9110/index/action_b`
 
+*注：目前 vanilla 所默认使用的模板引擎是 appo 老师开发的 [resty-template](https://github.com/bungle/lua-resty-template)，模板详细的使用文档请移步 appo 老师处参阅。*
+
 ###*新添加一个 Controller*
 *给 Vanilla 添加一个新的 Controller 非常简单，只需要在项目的 controllers 目录，实现一个 LUA 包，包导入的函数即为各个 action， 文件名与 controller 同名。例如添加一个名为 idevz 的 controller， 且实现一个名为 dohello 的 action（）。*
 
