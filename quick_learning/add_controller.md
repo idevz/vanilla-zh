@@ -36,21 +36,15 @@ return IndexController
 * IndexController:action_b （index Controller 中的 action_b Action，这里注意，action 的方法名必须小写），使用默认的简单路由协议，访问 URI 为 `curl http://localhost:9110/index/action_b`
 
 ###*新添加一个 Controller*
-*给 Vanilla 添加一个新的 Controller 非常简单，只需要在*
+*给 Vanilla 添加一个新的 Controller 非常简单，只需要在项目的 controllers 目录，实现一个 LUA 包，包导入的函数即为各个 action， 文件名与 controller 同名。例如添加一个名为 idevz 的 controller， 且实现一个名为 dohello 的 action（）。*
 
-```bash
-╰─○ v-console-0.1.0.rc6
-Lua 5.1.4  Copyright (C) 1994-2008 Lua.org, PUC-Rio
-v-console>a={}
-v-console>a.v1='a_v1'
-v-console>a.v2='a_v2'
-v-console>lprint_r(a)
-{
-  v2 = "a_v2",
-  v1 = "a_v1"
-}
-v-console>
+```lua
+local IdevzController = {}
+
+-- curl http://localhost:9110/idevz/dohello
+function IdevzController:dohello()
+    return 'do-hello-action.'
+end
+
+return IdevzController
 ```
-
-#####*err_log*
-*err_log 方法是对 `ngx.ERR` 的封装，将 `msg` 记录到 nginx 错误日志*
