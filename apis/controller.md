@@ -1,5 +1,5 @@
 ##Vanilla 的 controller
-*vanilla 的 controller 是业务处理的关键，基本的用法请参考 [快速开始](quick_learning/add_controller.md)。*
+*vanilla 的 controller 是业务处理的关键，基本的用法请参考 [快速开始](../quick_learning/add_controller.md)。*
 
 ###*关于 Controller*
 *Vanilla 的 Controller 可以是任何普通的 LUA 包，只不过导入的方法被用作处理请求的 Action。如下示例：*
@@ -57,4 +57,4 @@ end
 return IndexController
 ```
 
-*甚至还可以声明一个 Controller 基类，处理某些通用的逻辑，相关的详细用法参见 Vanilla[面向对象]() 相关章节。*
+*甚至还可以声明一个 Controller 基类，处理某些通用的逻辑，相关的详细用法参见 Vanilla[面向对象](../advanced/oo.md) 相关章节。*
