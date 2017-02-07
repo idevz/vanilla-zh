@@ -1,5 +1,5 @@
 ##Vanilla 的 controller
-* vanilla 的 controller 是业务处理的关键，vanilla 通过对 URI 的路由，找到本次请求对应的 controller 和 action。*
+*vanilla 的 controller 是业务处理的关键，vanilla 通过对 URI 的路由，找到本次请求对应的 controller 和 action。*
 
 ###*最简单的 Controller*
 *自动生成的 demo 中默认生成了 IndexController 和 index action（`function IndexController:index()`），默认使用简单路由协议（`vanilla.v.routes.simple`）对 URI 进行路由*
