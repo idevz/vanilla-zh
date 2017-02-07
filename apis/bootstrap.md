@@ -20,4 +20,14 @@ function Bootstrap:__construct(dispatcher)
 end
 ```
 
-*上面的定义代表只有 `initRoute` 方法会被执行，而上面两个方法的实现我们并不需要关心和更改，只需要定义各种 init 方法，并更新 `boot_list` 返回的表元素即可*
+*上面的定义代表只有 `initRoute` 方法会被执行，而上面两个方法的实现我们并不需要关心和更改，只需要定义各种 init 方法，并更新 `boot_list` 返回的表元素即可，比如下面初始化路由协议的 `initRoute`*
+
+```lua
+function Bootstrap:initRoute()
+    local router = self.dispatcher:getRouter()
+    local restful_route = restful:new(self.dispatcher:getRequest())
+    router:addRoute(restful_route, true)
+end
+```
+
+*注：可以通过 self.dispatcher 获取当前请求相关的详细信息，并进行相关控制*

@@ -127,6 +127,25 @@ passwd =idevz
 * `Registry['sys_conf']['v_resource）']['db.user.write']['host']` 获取写库的 HOST 信息
 
 ###Nginx配置
+#####自动生成的 Nginx 配置文件
+*初始化项目的时候会在项目目录下（nginx_conf/）自动生成这个项目所对应的两套（分别对应开发和线上环境）配置文件，生成的两套配置文件中，每套都包含 nginx.conf 和 vhost 两个配置文件*
+
+#### 生产环境
+###### va-nginx.conf 文件
+*va-nginx.conf 配置文件内容包含 nginx 配置主干（main、events、http 等重点配置段），包括用户、组的配置，工作进程等等通用配置，关键的还有 `lua_package_path`、`lua_package_cpath` 的配置，还有框架初始化文件（vanilla/framework/init.lua）的加载*
+
+###### vhost/app_name.conf 文件
+*vhost/app_name.conf 文件是当前应用的相关配置，包括 APP_NAME、VANILLA_VERSION、$template_root、$va_cache_status 等全局变量的初始化，$document_root，Server_name 等的设置，还有关键的应用入口（content_by_lua_file），lua_shared_dict 等的设置，不过这些设置都是自动生成的，开发人员没有特殊需求的话，并不需要关注这些*
+
+#### 开发环境
+###### va-nginx-development.conf 文件
+*va-nginx-development.conf 文件的内容跟开发环境类似，唯一的区别在于加载框架初始化文件（vanilla/framework/init.lua）的方式为 `init_by_lua_file`*
+
+###### dev_vhost/app_name.conf 文件
+*默认的dev_vhost/app_name.conf 文件的配置同生产环境的配置基本一样，关键不同在于 `lua_code_cache` 的设置*
+
+*注：所以初始化项目后，首先需要执行 `sudo ./va-app_name-service initconf dev` 命令，就是为了将自动生成的配置文件部署到 OpenResty 默认的配置文件路径下，如果需要更新 va-nginx（-development）.conf 则还需要在命令后面加上 `-f` 参数进行强行部署，每次如果需要修改配置，也只需修改这部分配置，然后执行 `initconf` 即可*
+
 #####*nginx.lua*( vanilla-0.1.0.rc5 后废弃此配置 )
 *分为ngx_conf.common和ngx_conf.env两个部分，common是对Openresty指令集的配置如INIT_BY_LUA，可以是包或者文件(BY_LUA_FILE)，env是环境的部分，包括了开发环境，测试环境和生产环境端口和缓存配置等控制.*
 
