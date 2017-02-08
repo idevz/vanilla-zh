@@ -9,10 +9,10 @@
 - vanilla中文邮件列表 <vanilla@googlegroups.com>
 
 ### *推荐始终使用最新版的Vanilla*
-*当前Vanilla最新版本0.1.0.rc5，支持命令：*
+*当前Vanilla最新版本0.1.0.rc6，支持命令：*
 
-- vanilla-0.1.0.rc5（*你没看错，自0.1.0.rc5起，vanilla的命令行和框架代码都带着版本号，方便多版本共存，也方便框架升级*）
-- v-console-0.1.0.rc5
+- vanilla-0.1.0.rc6（*你没看错，自0.1.0.rc5起，vanilla的命令行和框架代码都带着版本号，方便多版本共存，也方便框架升级*）
+- v-console-0.1.0.rc6
 
 ## 特性
 
