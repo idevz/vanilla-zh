@@ -1,18 +1,16 @@
 # Summary
 
 * [简介](README.md)
-   * [工程化的vanilla-0.1.0.rc5](intro/why_0_1_rc5.md)
-   * [目录结构](intro/index_structure.md)
-* [安装与升级](update_install.md)
-   * [vanilla-0.1.0.rc6](install/0_1_rc6.md)
-   * [vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
-   * [vanilla-0.1.0.rc4](install/0_1_rc4.md)
-* [快速上手](quick_learning.md)
+* 快速上手
    * [Hello World](quick_learning/hello_world.md)
    * [如何调试](quick_learning/debug.md)
    * [如何新增一个Controller](quick_learning/add_controller.md)
    * [如何使用models/dao](quick_learning/models_dao.md)
    * [如何使用models/service](quick_learning/models_service.md)
+* [ChangeLogs](update_install.md)
+   * [vanilla-0.1.0.rc6](install/0_1_rc6.md)
+   * [vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
+   * [vanilla-0.1.0.rc4](install/0_1_rc4.md)
 * [APIs](api.md)
    * [配置](cconfig.md)
    * [Bootstrap](apis/bootstrap.md)
