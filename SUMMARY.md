@@ -7,7 +7,7 @@
    * [如何新增一个Controller](quick_learning/add_controller.md)
    * [如何使用models/dao](quick_learning/models_dao.md)
    * [如何使用models/service](quick_learning/models_service.md)
-* [APIs](api.md)
+* APIs
    * [配置](cconfig.md)
    * [Bootstrap](apis/bootstrap.md)
    * [Controllers](apis/controller.md)
@@ -15,18 +15,18 @@
    * [路由](apis/route.md)
    * [异常处理](apis/error.md)
    * [内建类](apis/buildin.md)
-* [进阶](advanced.md)
+* 进阶
    * [页缓存](advanced/page_cache.md)
    * [面向对象](advanced/oo.md)
    * [Vanilla 包开发](advanced/packages.md)
-* [ChangeLogs](update_install.md)
+* ChangeLogs
    * [vanilla-0.1.0.rc6](install/0_1_rc6.md)
    * [vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
    * [vanilla-0.1.0.rc4](install/0_1_rc4.md)
-* [杂项](sundry/README.md)
+* 杂项
    * [Nginx执行阶段](sundry/nginx_phrase.md)
    * [Vanilla集成的一些优秀第三方包](sundry/3rd_party_pkg.md)
        * [QCon 2015 Broken Performance Tools](sundry/qcon_2015_broken_performance_tools.md)
-* [Vanilla使用经验](vanilla_user_practice/README.md)
+* Vanilla使用经验
    * [用户列表](vanilla_user_practice/yong_hu_lie_biao.md)
 
