@@ -33,7 +33,7 @@ useradd -s /sbin/nologin -M nginx
 
 id nginx # 可以查看到创建的用户
 
-# 2、创建 vanilla 项目, -a 为 项目路径，-u 为执行用户 -g 为用户组
+# 2、创建 vanilla 项目, -a 为 项目路径，-u 为执行用户 -g 为用户组 （在根目录 /home/webserver 下创建名为 cms 的项目）
 
 ./setup-vanilla-demoapp -a /home/webserver/cms -u nginx -g nginx
 
