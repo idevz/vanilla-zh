@@ -11,6 +11,7 @@
    * [配置](cconfig.md)
    * [Bootstrap](apis/bootstrap.md)
    * [Controllers](apis/controller.md)
+   * [模板引擎](apis/view.md)
    * [插件](apis/plugins.md)
    * [路由](apis/route.md)
    * [异常处理](apis/error.md)
