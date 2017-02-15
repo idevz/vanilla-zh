@@ -26,21 +26,9 @@ function Bootstrap:boot_list()
 end
 ```
 
-```lua
-function IndexController:index()
-    local view = self:getView()
-    local users = {
-                        {name='idevz', addr='yunnan'},
-                        {name='vanilla', addr='beijing'},
-                    }
-    return view:assign({userlists=users, title = 'Vanilla-Lemplate'})
-end
-```
+####*运行 `./va-{{app_name}}-service ltpl` 命令调用 `Lemplate` 编译你的 TT2 模板*
 
-*注：*
-
-* `local view = self:getView()` 获取当前视图实例
-* `view:assign({userlists=users, title = 'Vanilla-Lemplate'})` 将数据注入视图
+*下面是 TT2 模板示意*
 
 ```html
 <!DOCTYPE html>
@@ -61,4 +49,22 @@ end
 </html>
 ```
 
-*注：以上为 Lemplate 所使用的 TT2 模板实例，关于 Lemplate 的详细使用，可参加其[文档](https://github.com/openresty/lemplate)*
+####*在 Vanilla Action 中调用编译好的模板*
+
+```lua
+function IndexController:index()
+    local view = self:getView()
+    local users = {
+                        {name='idevz', addr='yunnan'},
+                        {name='vanilla', addr='beijing'},
+                    }
+    return view:assign({userlists=users, title = 'Vanilla-Lemplate'})
+end
+```
+
+*注：*
+
+* `local view = self:getView()` 获取当前视图实例
+* `view:assign({userlists=users, title = 'Vanilla-Lemplate'})` 将数据注入视图
+
+*注：以上为 Lemplate 所使用的 TT2 模板实例，关于 Lemplate 的详细使用，可参考其详细[文档](https://github.com/openresty/lemplate)*
