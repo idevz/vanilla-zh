@@ -1,9 +1,30 @@
 ##Vanilla 的视图引擎
-*为去除模板运行时模板解析带来的不必要开销，从 vanilla-0.1.0.rc7 起 Vanilla 默认将使用 OpenResty 官方的 Lemplate 模板引擎，下面是简要用法，以及 Vanilla View 接口介绍*
+*为去除模板运行时模板解析带来的不必要开销，从 vanilla-0.1.0.rc7 起 Vanilla 开始支持 OpenResty 官方的 Lemplate 模板引擎，下面将简要介绍 Vanilla 中 Lemplate 的用法，以及 Vanilla View 接口介绍*
 
 ###*Vanilla 的视图渲染*
-*Vanilla 在 `vanilla.v.dispatcher` 中导入了默认的模板引擎（ vanilla-0.1.0.rc7 之前，默认导入的是 `local View = LoadV 'vanilla.v.views.rtpl'` 之后将使用 `vanilla.v.views.lemplate`），如果在 Bootstrap 中未被修改，则使用此引擎来渲染视图。*
-*在 Controller 中做模板渲染，只需要获取当前视图实例，注入数据，展示即可。下面就以 Lemplate 模板引擎为例，展示相关用法*
+*Vanilla 在 `vanilla.v.dispatcher` 中导入了默认的模板引擎（`local View = LoadV 'vanilla.v.views.rtpl'`），但是可以在 Bootstrap 中实现 `initView` 来修改所使用的视图引擎。*
+*而 Vanilla 的模板渲染，只需要在相应的 Action 中获取当前视图实例，注入数据，展示即可。下面就以 Lemplate 模板引擎为例，展示相关用法*
+
+####*首先在 Bootstrap 中实现 `initView` 方法，修改项目所使用的视图引擎*
+
+```lua
+-- application/bootstrap.lua
+function Bootstrap:initView()
+    local view = LoadV('vanilla.v.views.lemplate'):new(self.dispatcher.application.config.view)
+    self.dispatcher:setView(view)
+end
+
+-- boot_list 中打开 Bootstrap.initView 方法调用
+function Bootstrap:boot_list()
+    return {
+        -- Bootstrap.initWaf,
+        -- Bootstrap.initErrorHandle,
+        -- Bootstrap.initRoute,
+        Bootstrap.initView,
+        -- Bootstrap.initPlugin,
+    }
+end
+```
 
 ```lua
 function IndexController:index()
