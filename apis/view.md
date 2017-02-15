@@ -26,7 +26,7 @@ function Bootstrap:boot_list()
 end
 ```
 
-####*运行 `./va-{{app_name}}-service ltpl` 命令调用 `Lemplate` 编译你的 TT2 模板*
+####*运行 `./va-{app_name}-service ltpl` 命令调用 `Lemplate` 编译你的 TT2 模板*
 
 *下面是 TT2 模板示意*
 
