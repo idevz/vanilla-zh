@@ -24,6 +24,7 @@
    * [vanilla-0.1.0.rc6](install/0_1_rc6.md)
    * [vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
    * [vanilla-0.1.0.rc4](install/0_1_rc4.md)
+   * [vanilla-0.1.0.rc3](install/0_1_rc3.md)
 * 杂项
    * [Nginx执行阶段](sundry/nginx_phrase.md)
    * [Vanilla集成的一些优秀第三方包](sundry/3rd_party_pkg.md)
