@@ -27,6 +27,7 @@
    * [vanilla-0.1.0.rc3](install/0_1_rc3.md)
 * 杂项
    * [Nginx执行阶段](sundry/nginx_phrase.md)
+   * [基于 OpenResty 安装 Luarocks](install/or_luarocks.md)
    * [Vanilla集成的一些优秀第三方包](sundry/3rd_party_pkg.md)
        * [QCon 2015 Broken Performance Tools](sundry/qcon_2015_broken_performance_tools.md)
 * Vanilla使用经验
