@@ -24,4 +24,4 @@ sudo make build
 sudo make install
 ```
 
-*安装完毕后，只需要将 Luarocks 安装路径的 bin 目录（/usr/local/luarocks-2.4.1/bin）加到 PATH 环境变量下，即可使用 `luarocks` 命令来管理标准 Lua 包*
+*安装完毕后，只需要将 Luarocks 安装路径的 bin 目录（/usr/local/luarocks-2.4.1/bin）加到 PATH 环境变量下，即可使用 `luarocks` 命令来管理标准 Lua 包，使用 Luarocks 安装的包将保存在 Luarocks 安装的 share 目录，而可执行文件（比如 Vanilla 的可执行命令 vanilla 和 v-console）都在 luarocks 命令同级目录。*
