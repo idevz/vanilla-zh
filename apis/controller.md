@@ -58,3 +58,11 @@ return IndexController
 ```
 
 *甚至还可以声明一个 Controller 基类，处理某些通用的逻辑，相关的详细用法参见 Vanilla[面向对象](../advanced/oo.md) 相关章节。*
+
+
+###*关于 Action 的返回值*
+
+*Vanilla 底层会将 Action 执行的结果，完全使用 `ngx.print` 进行输出，所以 Action 的返回值必须不能为空。而由于 Vanilla 的 Response 中，提供了给响应添加头尾的 `Response:appendBody` 和 `Response:prependBody` 方法，最终的结果会将这些部分合起来一起返回，所以 Action 的返回值要求如下：*
+
+* Action 返回值必须非空
+* Action 返回值可以为一维索引数组 （不可以是多维 Hash 数组）
