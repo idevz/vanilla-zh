@@ -65,4 +65,4 @@ return IndexController
 *Vanilla 底层会将 Action 执行的结果，完全使用 `ngx.print` 进行输出，所以 Action 的返回值必须不能为空。而由于 Vanilla 的 Response 中，提供了给响应添加头尾的 `Response:appendBody` 和 `Response:prependBody` 方法，最终的结果会将这些部分合起来一起返回，所以 Action 的返回值要求如下：*
 
 * Action 返回值必须非空
-* Action 返回值可以为一维索引数组 （不可以是多维 Hash 数组）
+* Action 返回值可以为一维索引数组（不可以是多维 Hash 数组）或者字符串
