@@ -21,6 +21,7 @@
    * [面向对象](advanced/oo.md)
    * [Vanilla 包开发](advanced/packages.md)
 * ChangeLogs
+   * [vanilla-0.1.0.rc7](install/0_1_rc7.md)
    * [vanilla-0.1.0.rc6](install/0_1_rc6.md)
    * [vanilla-0.1.0.rc5](update/0_1_rc4_rc5.md)
    * [vanilla-0.1.0.rc4](install/0_1_rc4.md)
