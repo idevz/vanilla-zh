@@ -27,6 +27,13 @@ Appconf.view.suffix='.html'		--模板后缀
 Appconf.view.auto_render=true		--是否开启自动渲染
 ```
 
+#####*应用基础配置的引用*
+
+```lua
+-- 如上的配置，可以在代码中通过 Registry['APP_CONF'] 表来进行获取，比如获取 APP_NAME
+Registry['APP_CONF']['name']
+```
+
 #####*错误处理配置（config/errors.lua）*
 *根据errors.lua文件中实例，配置用户级别错误码.*
 
