@@ -31,7 +31,7 @@ Appconf.view.auto_render=true		--是否开启自动渲染
 
 ```lua
 -- 如上的配置，可以在代码中通过 Registry['APP_CONF'] 表来进行获取，比如获取 APP_NAME
-Registry['APP_CONF']['name']
+local app_name = Registry['APP_CONF']['name']
 ```
 
 #####*错误处理配置（config/errors.lua）*
