@@ -30,7 +30,7 @@ return IndexController
 
 *注：*
 
-* `vanilla.v.libs.cookie` 支持以下 cookie 选项
+* `vanilla.v.libs.cookie` 支持以下 cookie 选项 *
 
 ```lua
 path
