@@ -7,22 +7,29 @@
 
 ```lua
 local IndexController = {}
-local vcookie_lib = LoadV('vanilla.v.libs.cookie')
+local vcookie_lib = LoadV('vanilla.v.libs.cookie')      -- 载入 `vanilla.v.libs.cookie` 包
 
 function IndexController:index()
-    local cookie = vcookie_lib()
-    cookie:set('idevz', 'kkkk', {expires=1000})
+    local cookie = vcookie_lib()                        -- 实例化 `vanilla.v.libs.cookie` 类
+    cookie:set('idevz', 'kkkk', {expires=1000})         -- 调用 `set` 方法，设置 cookie
     cookie:set('idevz_api', 'kkkk', {expires=1000,path='/'})
-    print_r(cookie:getAll())
+    print_r(cookie:getAll())  -- 调用 `getAll` 方法，获取所有 cookie，也可以调用 `get` 获取单个cookie
     do return '' end
 end
 
 return IndexController
 ```
 
-*例释：*
+*注：*
 
-* `local vcookie_lib = LoadV('vanilla.v.libs.cookie')` 载入 `vanilla.v.libs.cookie` 包
-* `local cookie = vcookie_lib()` 实例化 `vanilla.v.libs.cookie` 类
-* `cookie:set('idevz', 'kkkk', {expires=1000})` 调用 `set` 方法，设置 cookie
-* `cookie:getAll()` 调用 `getAll` 方法，获取所有 cookie，也可以调用 `get` 获取单个cookie
+* `vanilla.v.libs.cookie` 支持以下 cookie 选项
+
+```lua
+path
+domain
+max_age
+secure
+httponly
+samesite
+extension
+```
