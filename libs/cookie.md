@@ -7,13 +7,21 @@
 
 ```lua
 local IndexController = {}
-local vcookie_lib = LoadV('vanilla.v.libs.cookie')      -- 载入 `vanilla.v.libs.cookie` 包
+
+-- 载入 `vanilla.v.libs.cookie` 包
+local vcookie_lib = LoadV('vanilla.v.libs.cookie')
 
 function IndexController:index()
-    local cookie = vcookie_lib()                        -- 实例化 `vanilla.v.libs.cookie` 类
-    cookie:set('idevz', 'kkkk', {expires=1000})         -- 调用 `set` 方法，设置 cookie
+
+    -- 实例化 `vanilla.v.libs.cookie` 类
+    local cookie = vcookie_lib()
+
+    -- 调用 `set` 方法，设置 cookie
+    cookie:set('idevz', 'kkkk', {expires=1000})
     cookie:set('idevz_api', 'kkkk', {expires=1000,path='/'})
-    print_r(cookie:getAll())  -- 调用 `getAll` 方法，获取所有 cookie，也可以调用 `get` 获取单个cookie
+    
+    -- 调用 `getAll` 方法，获取所有 cookie，也可以调用 `get` 获取单个cookie
+    print_r(cookie:getAll())
     do return '' end
 end
 
