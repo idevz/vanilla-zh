@@ -22,6 +22,8 @@
    * [页缓存](advanced/page_cache.md)
    * [面向对象](advanced/oo.md)
    * [Vanilla 包开发](advanced/packages.md)
+* OpenResty
+   * [OR文档精炼](openresty/or_doc.md)
 * ChangeLogs
    * [vanilla-0.1.0.rc7](install/0_1_rc7.md)
    * [vanilla-0.1.0.rc6](install/0_1_rc6.md)
