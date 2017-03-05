@@ -36,3 +36,27 @@ location / {
  }
 }
 ```
+
+还可以创建一个无限执行的计时器，例如，一个每 5 秒触发执行一次的计时器，在它的回调方法中递归的调用 `ngx.timer.at` ，这里给出这样的一个例子。
+
+```lua
+local delay = 5
+local handler
+handler = function (premature)
+ -- do some routine job in Lua just like a cron job
+ if premature then
+     return
+ end
+ local ok, err = ngx.timer.at(delay, handler)
+ if not ok then
+     ngx.log(ngx.ERR, "failed to create the timer: ", err)
+     return
+ end
+end
+
+local ok, err = ngx.timer.at(delay, handler)
+if not ok then
+ ngx.log(ngx.ERR, "failed to create the timer: ", err)
+ return
+end
+```
