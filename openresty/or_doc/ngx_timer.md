@@ -61,6 +61,6 @@ if not ok then
 end
 ```
 
-因为定时器的回调函数都是运行在后端，而且他们的运行时间不会叠加到客户端请求的相应时间中，它们可能会因为 Lua 语法错误，或者过多的客户端请求而很容易在服务端造成累积，或者耗尽系统资源。为了防止像 Nginx 服务器宕机这种极端结果，
+因为定时器的回调函数都是运行在后端，而且他们的运行时间不会叠加到客户端请求的相应时间中，它们可能会因为 Lua 语法错误，或者过多的客户端请求而很容易在服务端造成累积，或者耗尽系统资源。为了防止出现像 Nginx 服务器宕机这种极端结果，在一个 Nginx 工作进程中提供了对 “等待中的计时器” 和 “运行中的计时器” 这两种计时器的数量限制。这里 “等待中的计时器” 是指还没有过期的计时器，而 “运行中的计时器” 是指那些用户回调方法当前正在运行的计时器。
 
- callbacks run in the background and their running time will not add to any client request's response time, they can easily accumulate in the server and exhaust system resources due to either Lua programming mistakes or just too much client traffic. To prevent extreme consequences like crashing the Nginx server, there are built-in limitations on both the number of "pending timers" and the number of "running timers" in an Nginx worker process. The "pending timers" here mean timers that have not yet been expired and "running timers" are those whose user callbacks are currently running.
+一个 Nginx 进程中所允许的 “等待中的计时器” 允许的最大数量由 `lua_max_pending_timers` 指令控制。而允许的 “运行中的计时器” 允许的最大数量由 `lua_max_running_timers` 指令控制。
