@@ -66,3 +66,5 @@ end
 一个 Nginx 进程中所允许的 “等待中的计时器” 允许的最大数量由 `lua_max_pending_timers` 指令控制。而允许的 “运行中的计时器” 允许的最大数量由 `lua_max_running_timers` 指令控制。
 
 目前的实现，每个 “运行中的计时器” 都会从 nginx.conf 配置中 `worker_connections` 指令配置的全局连接列表中占用一个 （虚） 连接记录，所以必须确保 `worker_connections` 指令设置了一个足够大的值能同时包含真正的连接数和计时器回调函数运行所需要的虚连接数（这个连接数是有 `lua_max_running_timers` 指令设限的）。
+
+A lot of the Lua APIs for Nginx are enabled in the context of the timer callbacks, like stream/datagram cosockets (ngx.socket.tcp and ngx.socket.udp), shared memory dictionaries (ngx.shared.DICT), user coroutines (coroutine.*), user "light threads" (ngx.thread.*), ngx.exit, ngx.now/ngx.time, ngx.md5/ngx.sha1_bin, are all allowed. But the subrequest API (like ngx.location.capture), the ngx.req.* API, the downstream output API (like ngx.say, ngx.print, and ngx.flush) are explicitly disabled in this context.
