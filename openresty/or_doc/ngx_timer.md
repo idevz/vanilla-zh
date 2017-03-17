@@ -68,3 +68,7 @@ end
 目前的实现，每个 “运行中的计时器” 都会从 nginx.conf 配置中 `worker_connections` 指令配置的全局连接列表中占用一个 （虚） 连接记录，所以必须确保 `worker_connections` 指令设置了一个足够大的值能同时包含真正的连接数和计时器回调函数运行所需要的虚连接数（这个连接数是有 `lua_max_running_timers` 指令设限的）。
 
 许多 Nginx 的 Lua API 能在计时器回调函数的上下文中使用，比如操作流和数据包的 cosockets API（`ngx.socket.tcp` 和 `ngx.socket.udp`），共享内存字典（`ngx.shared.DICT`），用户协程函数（`coroutine.*`），用户“轻线程”（`ngx.thread.*`），`ngx.exit`，`ngx.now/ngx.time`，`ngx.md5/ngx.sha1_bin`等都是可用的，但是相关子请求的 API （诸如`ngx.location.capture`），`ngx.req.* API`，下游输出 API （诸如 `ngx.say`，`ngx.print` 和 `ngx.flush`）都是明确在此上下文中不支持的。
+
+You can pass most of the standard Lua values (nils, booleans, numbers, strings, tables, closures, file handles, and etc) into the timer callback, either explicitly as user arguments or implicitly as upvalues for the callback closure. There are several exceptions, however: you cannot pass any thread objects returned by coroutine.create and ngx.thread.spawn or any cosocket objects returned by ngx.socket.tcp, ngx.socket.udp, and ngx.req.socket because these objects' lifetime is bound to the request context creating them while the timer callback is detached from the creating request's context (by design) and runs in its own (fake) request context. If you try to share the thread or cosocket objects across the boundary of the creating request, then you will get the "no co ctx found" error (for threads) or "bad request" (for cosockets). It is fine, however, to create all these objects inside your timer callback.
+
+This API was first introduced in the v0.8.0 release.
