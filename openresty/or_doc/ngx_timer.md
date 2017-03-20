@@ -1,4 +1,4 @@
-# ngx.timer
+# ngx.timer.at
 
 *语法：* `ok, err = ngx.timer.at(delay, callback, user_arg1, user_arg2, ...)`
 *上下文：* `init_worker_by_lua*, set_by_lua*, rewrite_by_lua*, access_by_lua*, content_by_lua*, header_filter_by_lua*, body_filter_by_lua*, log_by_lua*, ngx.timer.*, balancer_by_lua*, ssl_certificate_by_lua*, ssl_session_fetch_by_lua*, ssl_session_store_by_lua*`
@@ -11,9 +11,9 @@
 
 当 Nginx 工作进程尝试关闭，比如在 Nginx 由于收到 HUP 信号而触发了 Nginx 配置重载的时候，或者 Nginx 服务正在关闭的时候，将会出现无效的计时器（//TODO Premature timer）。当 Nginx 工作进程尝试关闭，将无法通过调用 `ngx.timer.at` 来创建一个新的非零延迟的计时器，并且此时 `ngx.timer.at` 将返回 `nil` 和 “process exiting” 错误。
 
-这个 API 从 v0.9.3 版本开始发布，并且即使 Nginx 工作进程开始关闭的时候，仍然允许创建零延迟计时器。
+这个 API 从 v0.9.3 版本开始，即使 Nginx 工作进程开始关闭的时候，仍然允许创建零延迟计时器。
 
-当一个计时器运行时，计时器中用户定义回调的 Lua 代码将在一个与创建这个计时器的源请求完全隔离的 “轻线程” 中运行，所以，源请求生命周期内的对象，比如 `cosockets` 并不能与回调函数共享。
+当一个计时器到期时，计时器中用户定义回调的 Lua 代码将在一个与创建这个计时器的源请求完全隔离的 “轻线程” 中运行，所以，源请求生命周期内的对象，比如 `cosockets` 并不能与回调函数共享。
 
 下面来看一个简单的例子：
 
@@ -72,3 +72,19 @@ end
 你可以给计时器的回调函数传递大部分的标准 Lua 值类型（nils、布尔、数字、字符串、表、闭包、文件句柄等），要么显示的使用用户参数或者隐式的使用回调函数闭包的上游值。然而有一些例外诸如：你不能传递任何由 `coroutine.create` 和 `ngx.thread.spawn` 返回的线程对象，或者任何由 `ngx.socket.tcp`、`ngx.socket.udp` 和 `ngx.req.socket` 返回的 cosocket 对象，因为这些对象的生命周期是与创建他们的请求上下文绑定的，而计时器的回调函数（设计时）是与创建他们的请求上下文分离的，并且运行在它自己的（虚）请求上下文中。如果你试图跨越创建这些线程和 cosocket 的请求上下文边界来共享这些线程和 cosocket 对象，将会报错，对线程将报错 `no co ctx found`，对 cosocket 将报错 `bad request`，然而在计时器回调函数内部来创建这些对象则是没问题的。
 
 这个 API 在 v0.8.0 版本第一次释出。
+
+
+# ngx.timer.running_count
+*语法：* `count = ngx.timer.running_count()`
+*上下文：* `init_worker_by_lua*, set_by_lua*, rewrite_by_lua*, access_by_lua*, content_by_lua*, header_filter_by_lua*, body_filter_by_lua*, log_by_lua*, ngx.timer.*, balancer_by_lua*, ssl_certificate_by_lua*, ssl_session_fetch_by_lua*, ssl_session_store_by_lua*`
+
+*返回当前正在运行的计时器数量。*
+这个指令在 v0.9.20 版本第一次释出。
+
+
+# ngx.timer.pending_count
+*语法：* `count = ngx.timer.pending_count()`
+*上下文：* `init_worker_by_lua*, set_by_lua*, rewrite_by_lua*, access_by_lua*, content_by_lua*, header_filter_by_lua*, body_filter_by_lua*, log_by_lua*, ngx.timer.*, balancer_by_lua*, ssl_certificate_by_lua*, ssl_session_fetch_by_lua*, ssl_session_store_by_lua*`
+
+*返回当前正在等待的计时器数量。*
+这个指令在 v0.9.20 版本第一次释出。
