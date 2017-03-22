@@ -26,6 +26,7 @@
    * [OR文档精炼](openresty/or_doc.md)
       * [ngx.timer](openresty/or_doc/ngx_timer.md)
       * [ngx.config](openresty/or_doc/ngx_config.md)
+      * [coroutine](openresty/or_doc/coroutine.md)
 * ChangeLogs
    * [vanilla-0.1.0.rc7](install/0_1_rc7.md)
    * [vanilla-0.1.0.rc6](install/0_1_rc6.md)
