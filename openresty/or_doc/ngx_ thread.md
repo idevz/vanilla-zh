@@ -5,12 +5,8 @@
 
 *使用 Lua 函数 `func` 以及可选的参数 `arg1`，`arg2` 等生成一个新的用户“轻线程”，返回一个 Lua 线程（或者 Lua 协程）对象代表这个 “轻线程”*
 “轻线程”仅仅是一种特殊的由 `ngx_lua` 模块来调度的 Lua 协程。
-
-这个字段在 v0.10.1 版本第一次释出。
-
-Before ngx.thread.spawn returns, the func will be called with those optional arguments until it returns, aborts with an error, or gets yielded due to I/O operations via the Nginx API for Lua (like tcpsock:receive).
-
-After ngx.thread.spawn returns, the newly-created "light thread" will keep running asynchronously usually at various I/O events.
+在 `ngx.thread.spawn` 返回之前， `func` 函数将会被使用响应的可选参数进行调用，直到此函数调用返回、或者因为错误而终止或是因为通过使用 Nginx 的 I/O 操作 API 导致请求挂起（如 `tcpsock:receive` 操作）。
+在 `ngx.thread.spawn` 返回后，新被创建的“轻线程”将在各种 I/O 事件中保持通常的异步运行。
 
 All the Lua code chunks running by rewrite_by_lua, access_by_lua, and content_by_lua are in a boilerplate "light thread" created automatically by ngx_lua. Such boilerplate "light thread" are also called "entry threads".
 
