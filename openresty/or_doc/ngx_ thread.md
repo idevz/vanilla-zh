@@ -3,14 +3,10 @@
 *语法：* `co = ngx.thread.spawn(func, arg1, arg2, ...)`
 *上下文：* `rewrite_by_lua*, access_by_lua*, content_by_lua*, ngx.timer.*, ssl_certificate_by_lua*, ssl_session_fetch_by_lua*`
 
-**
+*使用 Lua 函数 `func` 以及可选的参数 `arg1`，`arg2` 等生成一个新的用户“轻线程”，返回一个 Lua 线程（或者 Lua 协程）对象代表这个 “轻线程”*
+“轻线程”仅仅是一种特殊的由 `ngx_lua` 模块来调度的 Lua 协程。
 
 这个字段在 v0.10.1 版本第一次释出。
-
-
-Spawns a new user "light thread" with the Lua function func as well as those optional arguments arg1, arg2, and etc. Returns a Lua thread (or Lua coroutine) object represents this "light thread".
-
-"Light threads" are just a special kind of Lua coroutines that are scheduled by the ngx_lua module.
 
 Before ngx.thread.spawn returns, the func will be called with those optional arguments until it returns, aborts with an error, or gets yielded due to I/O operations via the Nginx API for Lua (like tcpsock:receive).
 
