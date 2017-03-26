@@ -8,6 +8,8 @@
 在 `ngx.thread.spawn` 返回之前， `func` 函数将会被使用响应的可选参数进行调用，直到此函数调用返回、或者因为错误而终止或是因为通过使用 Nginx 的 I/O 操作 API 导致请求挂起（如 `tcpsock:receive` 操作）。
 在 `ngx.thread.spawn` 返回后，新被创建的“轻线程”将在各种 I/O 事件中保持通常的异步运行。
 
+所有在 `rewrite_by_lua`、`access_by_lua` 和 `content_by_lua` 运行的 Lua 代码块都在一个由 ngx_lua 自动创建的样板“轻线程”中，这些样板“轻线程”通常又叫“入口线程”。
+
 All the Lua code chunks running by rewrite_by_lua, access_by_lua, and content_by_lua are in a boilerplate "light thread" created automatically by ngx_lua. Such boilerplate "light thread" are also called "entry threads".
 
 By default, the corresponding Nginx handler (e.g., rewrite_by_lua handler) will not terminate until
