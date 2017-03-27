@@ -11,18 +11,8 @@
 所有在 `rewrite_by_lua`、`access_by_lua` 和 `content_by_lua` 运行的 Lua 代码块都在一个由 ngx_lua 自动创建的样板“轻线程”中，这些样板“轻线程”通常又叫“入口线程”。
 
 默认情况下，相应的 Nginx 处理程序（例如 `rewrite_by_lua` 处理程序）不会终止直到“入口线程”和所有的用户“轻线程”都终止，一个“轻线程（要么是“入口线程”要么是“用户轻线程”因为调用 `ngx.exit`，`ngx.exec`，`ngx.redirect` 或者 `ngx.req.set_uri(uri, true)`）或者“入口线程”因为报错而终止。
-当一个用户“轻线程”因为报错而终止，他将像”入口线程“一样终止其他线程的运行。
+当一个用户“轻线程”因为报错而终止，他将不会像“入口线程”一样终止其他线程的运行。
 
-By default, the corresponding Nginx handler (e.g., rewrite_by_lua handler) will not terminate until
-
-both the "entry thread" and all the user "light threads" terminates,
-
-a "light thread"
- (either the "entry thread" or a user "light thread" aborts by calling ngx.exit, ngx.exec, ngx.redirect, or ngx.req.set_uri(uri, true), 
- or
-the "entry thread" terminates with a Lua error.
-
-When the user "light thread" terminates with a Lua error, however, it will not abort other running "light threads" like the "entry thread" does.
 
 Due to the limitation in the Nginx subrequest model, it is not allowed to abort a running Nginx subrequest in general. So it is also prohibited to abort a running "light thread" that is pending on one ore more Nginx subrequests. You must call ngx.thread.wait to wait for those "light thread" to terminate before quitting the "world". A notable exception here is that you can abort pending subrequests by calling ngx.exit with and only with the status code ngx.ERROR (-1), 408, 444, or 499.
 
