@@ -13,7 +13,7 @@
 默认情况下，相应的 Nginx 处理程序（例如 `rewrite_by_lua` 处理程序）不会终止直到“入口线程”和所有的用户“轻线程”都终止，一个“轻线程（要么是“入口线程”要么是“用户轻线程”因为调用 `ngx.exit`，`ngx.exec`，`ngx.redirect` 或者 `ngx.req.set_uri(uri, true)`）或者“入口线程”因为报错而终止。
 当一个用户“轻线程”因为报错而终止，他将不会像“入口线程”一样终止其他线程的运行。
 
-因为 Nginx 子请求模块的限制，一般不允许中止一个正在运行中的 Nginx 子请求
+因为 Nginx 子请求模块的限制，一般不允许中止一个正在运行中的 Nginx 子请求。所以同样禁止中止一个运行中的正在等待一个或多个 Nginx 子请求的“轻线程”。你应该调用 `ngx.thread.wait` 来在中止前等待这些“轻线程”结束。这里有个值得注意的异常，你可以通过使用而且只能使用 `ngx.ERROR(-1),408,444或者499`状态调用 `ngx.exit` 来中止等待的子请求。
 
 
 Due to the limitation in the Nginx subrequest model, it is not allowed to abort a running Nginx subrequest in general. So it is also prohibited to abort a running "light thread" that is pending on one ore more Nginx subrequests. You must call ngx.thread.wait to wait for those "light thread" to terminate before quitting the "world". A notable exception here is that you can abort pending subrequests by calling ngx.exit with and only with the status code ngx.ERROR (-1), 408, 444, or 499.
