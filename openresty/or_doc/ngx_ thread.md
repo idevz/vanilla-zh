@@ -15,7 +15,7 @@
 
 因为 Nginx 子请求模块的限制，一般不允许中止一个正在运行中的 Nginx 子请求。所以同样禁止中止一个运行中的正在等待一个或多个 Nginx 子请求的“轻线程”。你应该调用 `ngx.thread.wait` 来在结束前等待这些“轻线程”结束。这里有个值得注意的例外是你可以通过使用而且只能使用 `ngx.ERROR(-1),408,444或者499` 状态调用 `ngx.exit` 来中止等待的子请求。
 
-“轻线程”不是使用预先抢占的方式来调度的，换句话说，没有自动执行的时间片，
+“轻线程”不是使用预先抢占的方式来调度的，换句话说，没有自动执行的时间片，一个“轻线程”将保持在 CPU 运行，直到一个（非阻塞）I/O 操作在一个单线程运行不能被完成。
 
 The "light threads" are not scheduled in a pre-emptive way. In other words, no time-slicing is performed automatically. A "light thread" will keep running exclusively on the CPU until
 
