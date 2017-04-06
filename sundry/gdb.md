@@ -1,11 +1,11 @@
 ## 使用 GDB 调试 Nginx
-'' sudo gdb -q -tui # -q 安静模式启动 GDB -tui 显示代码界面
+udo gdb -q -tui # -q 安静模式启动 GDB -tui 显示代码界面
 进入 GDB 运行 `attach` Nginx 子进程报错如下：
-'' Missing separate debuginfos, use: debuginfo-install libgcc-4.8.5-4.el7.x86_64 zlib-1.2.7-17.el7.x86_64
+issing separate debuginfos, use: debuginfo-install libgcc-4.8.5-4.el7.x86_64 zlib-1.2.7-17.el7.x86_64
 直接安装即可
 
 ## 断点
-'' b ngx_process_events_and_timers 
+ ngx_process_events_and_timers 
 子进程即 worker 进程在运行后会停留在`epoll_wait` 处等待相应的事件发生，而这个函数调用被封装在 `ngx_process_events_and_timers` 中
 
 ```gdb
@@ -49,4 +49,42 @@
 22      breakpoint     keep y   0x0000000000485e7d in ngx_http_core_content_phase at src/http/ngx_http_core_module.c:1379
         breakpoint already hit 1 time
 23      breakpoint     keep y   0x0000000000504c19 in ngx_http_lua_content_handler at ../ngx_lua-0.10.6/src/ngx_http_lua_contentby.c:222
+```
+
+## Lua 请求处理
+### 堆栈
+
+```gdb
+0  __libc_writev (fd=3, vector=0x7ffe08245dd0, count=14) at ../sysdeps/unix/sysv/linux/writev.c:68
+1  0x00000000004717e9 in ngx_writev (c=c@entry=0x7ff03d02f730, vec=vec@entry=0x7ffe08245db0) at src/os/unix/ngx_writev_chain.c:189
+2  0x0000000000476a7e in ngx_linux_sendfile_chain (c=0x7ff03d02f730, in=0x7ff03d001418, limit=2147479551) at src/os/unix/ngx_linux_sendfile_chain.c:215
+3  0x00000000004a7d15 in ngx_http_write_filter (r=0x7ff03cfffcf0, in=0x7ff03d001b78) at src/http/ngx_http_write_filter_module.c:254
+4  0x00000000004a909d in ngx_http_chunked_body_filter (r=0x7ff03cfffcf0, in=<optimized out>) at src/http/modules/ngx_http_chunked_filter_module.c:224
+5  0x00000000004ac7dc in ngx_http_gzip_body_filter (r=0x7ff03cfffcf0, in=0x7ffe082466d0) at src/http/modules/ngx_http_gzip_filter_module.c:326
+6  0x00000000004afd95 in ngx_http_ssi_body_filter (r=0x7ff03cfffcf0, in=<optimized out>) at src/http/modules/ngx_http_ssi_filter_module.c:411
+7  0x00000000004b2cf0 in ngx_http_charset_body_filter (r=0x7ff03cfffcf0, in=0x7ffe082466d0) at src/http/modules/ngx_http_charset_filter_module.c:647
+8  0x0000000000506c7c in ngx_http_lua_capture_body_filter (r=0x7ff03cfffcf0, in=0x7ffe082466d0) at ../ngx_lua-0.10.6/src/ngx_http_lua_capturefilter.c:133
+9  0x0000000000453395 in ngx_output_chain (ctx=ctx@entry=0x7ff03d001428, in=in@entry=0x7ffe082466d0) at src/core/ngx_output_chain.c:74
+10 0x00000000004b4f95 in ngx_http_copy_filter (r=0x7ff03cfffcf0, in=0x7ffe082466d0) at src/http/ngx_http_copy_filter_module.c:152
+11 0x0000000000485a37 in ngx_http_output_filter (r=r@entry=0x7ff03cfffcf0, in=in@entry=0x7ffe082466d0) at src/http/ngx_http_core_module.c:1979
+12 0x0000000000489e33 in ngx_http_send_special (r=r@entry=0x7ff03cfffcf0, flags=flags@entry=1) at src/http/ngx_http_request.c:3358
+13 0x00000000004ffc38 in ngx_http_lua_send_special (flags=1, r=0x7ff03cfffcf0) at ../ngx_lua-0.10.6/src/ngx_http_lua_util.c:569
+14 ngx_http_lua_send_chain_link (r=0x7ff03cfffcf0, ctx=<optimized out>, in=0x0) at ../ngx_lua-0.10.6/src/ngx_http_lua_util.c:523
+15 0x0000000000501f5f in ngx_http_lua_run_thread (L=L@entry=0x40030378, r=r@entry=0x7ff03cfffcf0, ctx=ctx@entry=0x7ff03d000dc8, nrets=nrets@entry=0) at ../ngx_lua-0.10.6/src/ngx_http_lua_util.c:1476
+16 0x00000000005050f0 in ngx_http_lua_content_by_chunk (L=L@entry=0x40030378, r=r@entry=0x7ff03cfffcf0) at ../ngx_lua-0.10.6/src/ngx_http_lua_contentby.c:120
+17 0x000000000050548d in ngx_http_lua_content_handler_file (r=0x7ff03cfffcf0) at ../ngx_lua-0.10.6/src/ngx_http_lua_contentby.c:284
+18 0x0000000000504c21 in ngx_http_lua_content_handler (r=0x7ff03cfffcf0) at ../ngx_lua-0.10.6/src/ngx_http_lua_contentby.c:222
+19 0x0000000000485e7f in ngx_http_core_content_phase (r=0x7ff03cfffcf0, ph=<optimized out>) at src/http/ngx_http_core_module.c:1379
+20 0x0000000000480675 in ngx_http_core_run_phases (r=r@entry=0x7ff03cfffcf0) at src/http/ngx_http_core_module.c:856
+21 0x000000000048075c in ngx_http_handler (r=r@entry=0x7ff03cfffcf0) at src/http/ngx_http_core_module.c:839
+22 0x000000000048c249 in ngx_http_process_request (r=0x7ff03cfffcf0) at src/http/ngx_http_request.c:1916
+23 0x000000000048cbf6 in ngx_http_process_request_line (rev=0x7ff03d069520) at src/http/ngx_http_request.c:1027
+24 0x0000000000476029 in ngx_epoll_process_events (cycle=0x7ff03cffbce0, timer=<optimized out>, flags=<optimized out>) at src/event/modules/ngx_epoll_module.c:900
+25 0x000000000046c947 in ngx_process_events_and_timers (cycle=cycle@entry=0x7ff03cffbce0) at src/event/ngx_event.c:242
+26 0x0000000000473d35 in ngx_worker_process_cycle (cycle=cycle@entry=0x7ff03cffbce0, data=data@entry=0x0) at src/os/unix/ngx_process_cycle.c:753
+27 0x0000000000472820 in ngx_spawn_process (cycle=cycle@entry=0x7ff03cffbce0, proc=0x473cf0 <ngx_worker_process_cycle>, data=0x0, name=0x6e22f5 "worker process", respawn=respawn@entry=0)
+   at src/os/unix/ngx_process.c:198
+28 0x0000000000475216 in ngx_reap_children (cycle=0x7ff03cffbce0) at src/os/unix/ngx_process_cycle.c:621
+29 ngx_master_process_cycle (cycle=cycle@entry=0x7ff03cffbce0) at src/os/unix/ngx_process_cycle.c:174
+30 0x000000000044e139 in main (argc=<optimized out>, argv=<optimized out>) at src/core/nginx.c:367
 ```
