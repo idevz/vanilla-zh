@@ -162,3 +162,7 @@ issing separate debuginfos, use: debuginfo-install libgcc-4.8.5-4.el7.x86_64 zli
 36      breakpoint     keep y   0x0000000000476a71 in ngx_linux_sendfile_chain at src/os/unix/ngx_linux_sendfile_chain.c:215
         breakpoint already hit 1 time
 ```
+
+## 使用 GDB 调试 OpenResty
+
+### 加断点
