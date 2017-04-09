@@ -166,3 +166,29 @@ issing separate debuginfos, use: debuginfo-install libgcc-4.8.5-4.el7.x86_64 zli
 ## 使用 GDB 调试 OpenResty
 
 ### 加断点
+
+比如 `ngx_http_lua_ffi_worker_pid`
+
+```lua
+local ffi = require 'ffi'
+local C = ffi.C
+
+
+ffi.cdef[[
+int ngx_http_lua_ffi_worker_pid(void);
+]]
+
+local _M = { _VERSION = '0.10' }
+local mt = { __index = _M }
+
+function _M.new(self)
+    local _m_name = 'weibo.com'
+    return setmetatable({ m_name = _m_name }, mt)
+end
+
+function _M.getWorkerPid(self)
+    return C.ngx_http_lua_ffi_worker_pid()
+end
+
+return _M
+```
