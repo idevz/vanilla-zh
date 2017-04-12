@@ -192,7 +192,7 @@ end
 
 return _M
 ```
-运行代码，调用这个包，则可以在 GDB 中加断点 `ngx_http_lua_ffi_worker_pid` 即可直接追踪 OpenResty 的大致运行过程。
+运行调用这个包的代码，则可以在 GDB 中加断点 `ngx_http_lua_ffi_worker_pid` 即可直接追踪 OpenResty 的大致运行过程。通过 `c` 继续下一步
 
 #### breakpoints
 ```
