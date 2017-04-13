@@ -195,24 +195,3 @@ return _M
 运行调用这个包的代码，则可以在 GDB 中加断点 `ngx_http_lua_ffi_worker_pid` 即可直接追踪 OpenResty 的大致运行过程。通过 `c` 继续下一步
 
 #### breakpoints
-```
-ngx_http_process_request_headers
-ngx_http_lua_content_handler
-ngx_http_lua_content_handler_file
-ngx_http_lua_content_by_chunk
-ngx_http_lua_run_thread
-ngx_http_lua_send_chain_link
-ngx_http_send_special
-ngx_http_output_filter
-ngx_http_lua_capture_body_filter
-ngx_http_charset_body_filter
-ngx_http_ssi_body_filter
-ngx_http_postpone_filter
-ngx_http_gzip_body_filter
-ngx_http_chunked_body_filter
-ngx_http_write_filter
-ngx_linux_sendfile_chain
-ngx_http_copy_filter
-ngx_output_chain
-ngx_linux_sendfile_chain
-```
