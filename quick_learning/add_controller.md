@@ -42,11 +42,9 @@ return IndexController
 
 ```lua
 local IdevzController = {}
-
 -- curl http://localhost:9110/idevz/dohello
 function IdevzController:dohello()
     return 'do-hello-action.'
 end
-
 return IdevzController
 ```
