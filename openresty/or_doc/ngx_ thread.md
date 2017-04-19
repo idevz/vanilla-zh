@@ -19,6 +19,9 @@
 
 The "light threads" are not scheduled in a pre-emptive way. In other words, no time-slicing is performed automatically. A "light thread" will keep running exclusively on the CPU until
 
+
+
+
 a (nonblocking) I/O operation cannot be completed in a single run,
 it calls coroutine.yield to actively give up execution, or
 it is aborted by a Lua error or an invocation of ngx.exit, ngx.exec, ngx.redirect, or ngx.req.set_uri(uri, true).
