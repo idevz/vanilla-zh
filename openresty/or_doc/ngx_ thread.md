@@ -39,4 +39,3 @@ the current "light thread" already terminates (either successfully or with an er
 its parent coroutine is still alive, and
 its parent coroutine is not waiting on it with ngx.thread.wait.
 The following example demonstrates the use of coroutine.yield() in the "light thread" coroutines to do manual time-slicing:
-x
