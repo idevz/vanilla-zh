@@ -35,6 +35,8 @@ You can call coroutine.status() and coroutine.yield() on the "light thread" coro
 
 The status of the "light thread" coroutine can be "zombie" if
 
+
+
 the current "light thread" already terminates (either successfully or with an error),
 its parent coroutine is still alive, and
 its parent coroutine is not waiting on it with ngx.thread.wait.
